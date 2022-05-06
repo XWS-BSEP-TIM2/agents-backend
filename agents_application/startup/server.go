@@ -64,9 +64,7 @@ func NewServer(config *config.Config) *Server {
 
 func (server *Server) Start() {
 	mongoClient := server.initMongoClient()
-
 	userStore := server.initUserStore(mongoClient)
-
 	userService := server.initUserService(userStore)
 
 	userHandler := server.initUserHandler(userService)
@@ -74,12 +72,12 @@ func (server *Server) Start() {
 	server.startGrpcServer(userHandler)
 }
 
-func (s *Server) GetTracer() otgo.Tracer {
-	return s.tracer
+func (server *Server) GetTracer() otgo.Tracer {
+	return server.tracer
 }
 
-func (s *Server) GetCloser() io.Closer {
-	return s.closer
+func (server *Server) GetCloser() io.Closer {
+	return server.closer
 }
 
 func (server *Server) initMongoClient() *mongo.Client {
@@ -118,20 +116,13 @@ func (server *Server) startGrpcServer(userHandler *api.UserHandler) {
 	}
 
 	// Create a gRPC server object
-	s := grpc.NewServer()
+	grpcServer := grpc.NewServer()
+	pb.RegisterAgentsProtoServiceServer(grpcServer, userHandler)
 
-	service := NewServer(server.config)
-	if err != nil {
-		log.Fatal(err.Error())
-		return
-	}
-
-	// Attach the Greeter service to the server
-	pb.RegisterAgentsProtoServiceServer(s, service)
 	// Serve gRPC server
 	log.Println("Serving gRPC on 0.0.0.0:8031")
 	go func() {
-		log.Fatalln(s.Serve(lis))
+		log.Fatalln(grpcServer.Serve(lis))
 	}()
 
 	// Create a client connection to the gRPC server we just started
