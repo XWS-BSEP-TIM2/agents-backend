@@ -83,6 +83,24 @@ func local_request_AgentsProtoService_Get_0(ctx context.Context, marshaler runti
 
 }
 
+func request_AgentsProtoService_GetAll_0(ctx context.Context, marshaler runtime.Marshaler, client AgentsProtoServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq EmptyRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := client.GetAll(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_AgentsProtoService_GetAll_0(ctx context.Context, marshaler runtime.Marshaler, server AgentsProtoServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq EmptyRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.GetAll(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_AgentsProtoService_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, client AgentsProtoServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateUserRequest
 	var metadata runtime.ServerMetadata
@@ -178,6 +196,30 @@ func RegisterAgentsProtoServiceHandlerServer(ctx context.Context, mux *runtime.S
 		}
 
 		forward_AgentsProtoService_Get_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_AgentsProtoService_GetAll_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/agents_proto.AgentsProtoService/GetAll", runtime.WithHTTPPathPattern("/user"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_AgentsProtoService_GetAll_0(ctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_AgentsProtoService_GetAll_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -291,6 +333,27 @@ func RegisterAgentsProtoServiceHandlerClient(ctx context.Context, mux *runtime.S
 
 	})
 
+	mux.Handle("GET", pattern_AgentsProtoService_GetAll_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/agents_proto.AgentsProtoService/GetAll", runtime.WithHTTPPathPattern("/user"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_AgentsProtoService_GetAll_0(ctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_AgentsProtoService_GetAll_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_AgentsProtoService_CreateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -339,6 +402,8 @@ func RegisterAgentsProtoServiceHandlerClient(ctx context.Context, mux *runtime.S
 var (
 	pattern_AgentsProtoService_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"user", "id"}, ""))
 
+	pattern_AgentsProtoService_GetAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
+
 	pattern_AgentsProtoService_CreateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
 
 	pattern_AgentsProtoService_UpdateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
@@ -346,6 +411,8 @@ var (
 
 var (
 	forward_AgentsProtoService_Get_0 = runtime.ForwardResponseMessage
+
+	forward_AgentsProtoService_GetAll_0 = runtime.ForwardResponseMessage
 
 	forward_AgentsProtoService_CreateUser_0 = runtime.ForwardResponseMessage
 

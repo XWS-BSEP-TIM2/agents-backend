@@ -21,6 +21,10 @@ func (service *UserService) Get(ctx context.Context, id primitive.ObjectID) (*do
 	return service.store.Get(ctx, id)
 }
 
+func (service *UserService) GetAll(ctx context.Context) ([]*domain.User, error) {
+	return service.store.GetAll(ctx)
+}
+
 func (service *UserService) Insert(ctx context.Context, profile *domain.User) {
 	service.store.Insert(ctx, profile)
 }

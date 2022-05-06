@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AgentsProtoServiceClient interface {
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	GetAll(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*GetAllUsersResponse, error)
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 	UpdateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 }
@@ -38,6 +39,15 @@ func NewAgentsProtoServiceClient(cc grpc.ClientConnInterface) AgentsProtoService
 func (c *agentsProtoServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	out := new(GetResponse)
 	err := c.cc.Invoke(ctx, "/agents_proto.AgentsProtoService/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentsProtoServiceClient) GetAll(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*GetAllUsersResponse, error) {
+	out := new(GetAllUsersResponse)
+	err := c.cc.Invoke(ctx, "/agents_proto.AgentsProtoService/GetAll", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,6 +77,7 @@ func (c *agentsProtoServiceClient) UpdateUser(ctx context.Context, in *CreateUse
 // for forward compatibility
 type AgentsProtoServiceServer interface {
 	Get(context.Context, *GetRequest) (*GetResponse, error)
+	GetAll(context.Context, *EmptyRequest) (*GetAllUsersResponse, error)
 	CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	UpdateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	mustEmbedUnimplementedAgentsProtoServiceServer()
@@ -78,6 +89,9 @@ type UnimplementedAgentsProtoServiceServer struct {
 
 func (UnimplementedAgentsProtoServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedAgentsProtoServiceServer) GetAll(context.Context, *EmptyRequest) (*GetAllUsersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
 func (UnimplementedAgentsProtoServiceServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
@@ -112,6 +126,24 @@ func _AgentsProtoService_Get_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AgentsProtoServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentsProtoService_GetAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentsProtoServiceServer).GetAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/agents_proto.AgentsProtoService/GetAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentsProtoServiceServer).GetAll(ctx, req.(*EmptyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -162,6 +194,10 @@ var AgentsProtoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _AgentsProtoService_Get_Handler,
+		},
+		{
+			MethodName: "GetAll",
+			Handler:    _AgentsProtoService_GetAll_Handler,
 		},
 		{
 			MethodName: "CreateUser",

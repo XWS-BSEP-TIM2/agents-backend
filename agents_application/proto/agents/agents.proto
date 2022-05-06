@@ -13,6 +13,12 @@ service AgentsProtoService {
     };
   }
 
+  rpc GetAll(EmptyRequest) returns (GetAllUsersResponse){
+    option(google.api.http) = {
+      get: "/user"
+    };
+  }
+
   rpc CreateUser(CreateUserRequest) returns(CreateUserResponse){
     option(google.api.http)={
       post:"/user",
@@ -38,6 +44,10 @@ message GetRequest{
 
 message GetResponse{
   User user=1;
+}
+
+message GetAllUsersResponse{
+  repeated User users=1;
 }
 
 message User{

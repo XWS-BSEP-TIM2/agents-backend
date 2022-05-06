@@ -2,26 +2,63 @@ package startup
 
 import (
 	"context"
-	"fmt"
 	"github.com/XWS-BSEP-TIM2/agents-backend/agents_application/application"
 	"github.com/XWS-BSEP-TIM2/agents-backend/agents_application/infrastructure/api"
 	"github.com/XWS-BSEP-TIM2/agents-backend/agents_application/infrastructure/persistence"
 	pb "github.com/XWS-BSEP-TIM2/agents-backend/agents_application/proto/agents"
 	"github.com/XWS-BSEP-TIM2/agents-backend/agents_application/startup/config"
-	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	"github.com/XWS-BSEP-TIM2/agents-backend/agents_application/tracer"
+	grpc_opentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	otgo "github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go/ext"
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
+	"io"
 	"log"
 	"net"
+	"net/http"
 )
+
+var grpcGatewayTag = otgo.Tag{Key: string(ext.Component), Value: "grpc-gateway"}
+
+func tracingWrapper(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		parentSpanContext, err := otgo.GlobalTracer().Extract(
+			otgo.HTTPHeaders,
+			otgo.HTTPHeadersCarrier(r.Header))
+		if err == nil || err == otgo.ErrSpanContextNotFound {
+			serverSpan := otgo.GlobalTracer().StartSpan(
+				"ServeHTTP",
+				// this is magical, it attaches the new span to the parent parentSpanContext, and creates an unparented one if empty.
+				ext.RPCServerOption(parentSpanContext),
+				grpcGatewayTag,
+			)
+			r = r.WithContext(otgo.ContextWithSpan(r.Context(), serverSpan))
+			defer serverSpan.Finish()
+		}
+		h.ServeHTTP(w, r)
+	})
+}
 
 type Server struct {
 	config *config.Config
+	pb.UnimplementedAgentsProtoServiceServer
+	tracer otgo.Tracer
+	closer io.Closer
 }
 
+const name = "agents_service"
+
 func NewServer(config *config.Config) *Server {
+
+	tracer, closer := tracer.Init(name)
+	otgo.SetGlobalTracer(tracer)
+
 	return &Server{
 		config: config,
+		tracer: tracer,
+		closer: closer,
 	}
 }
 
@@ -35,6 +72,14 @@ func (server *Server) Start() {
 	userHandler := server.initUserHandler(userService)
 
 	server.startGrpcServer(userHandler)
+}
+
+func (s *Server) GetTracer() otgo.Tracer {
+	return s.tracer
+}
+
+func (s *Server) GetCloser() io.Closer {
+	return s.closer
 }
 
 func (server *Server) initMongoClient() *mongo.Client {
@@ -66,19 +111,62 @@ func (server *Server) initUserHandler(service *application.UserService) *api.Use
 }
 
 func (server *Server) startGrpcServer(userHandler *api.UserHandler) {
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%s", server.config.Port))
+	// Create a listener on TCP port
+	lis, err := net.Listen("tcp", ":8031")
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		log.Fatalln("Failed to listen:", err)
 	}
-	grpcServer := grpc.NewServer(
-		grpc.UnaryInterceptor(
-			grpc_middleware.ChainUnaryServer(
-			// interceptors.TokenAuthInterceptor,
+
+	// Create a gRPC server object
+	s := grpc.NewServer()
+
+	service := NewServer(server.config)
+	if err != nil {
+		log.Fatal(err.Error())
+		return
+	}
+
+	// Attach the Greeter service to the server
+	pb.RegisterAgentsProtoServiceServer(s, service)
+	// Serve gRPC server
+	log.Println("Serving gRPC on 0.0.0.0:8031")
+	go func() {
+		log.Fatalln(s.Serve(lis))
+	}()
+
+	// Create a client connection to the gRPC server we just started
+	// This is where the gRPC-Gateway proxies the requests
+	conn, err := grpc.DialContext(
+		context.Background(),
+		"0.0.0.0:8031",
+		grpc.WithBlock(),
+		grpc.WithInsecure(),
+		grpc.WithUnaryInterceptor(
+			grpc_opentracing.UnaryClientInterceptor(
+				grpc_opentracing.WithTracer(otgo.GlobalTracer()),
+			),
+		),
+		grpc.WithStreamInterceptor(
+			grpc_opentracing.StreamClientInterceptor(
+				grpc_opentracing.WithTracer(otgo.GlobalTracer()),
 			),
 		),
 	)
-	pb.RegisterAgentsProtoServiceServer(grpcServer, userHandler)
-	if err := grpcServer.Serve(listener); err != nil {
-		log.Fatalf("failed to serve: %s", err)
+	if err != nil {
+		log.Fatalln("Failed to dial server:", err)
 	}
+
+	gwmux := runtime.NewServeMux()
+	err = pb.RegisterAgentsProtoServiceHandler(context.Background(), gwmux, conn)
+	if err != nil {
+		log.Fatalln("Failed to register gateway:", err)
+	}
+
+	gwServer := &http.Server{
+		Addr:    ":8030",
+		Handler: tracingWrapper(gwmux),
+	}
+
+	log.Println("Serving gRPC-Gateway on http://0.0.0.0:8030")
+	log.Fatalln(gwServer.ListenAndServe())
 }

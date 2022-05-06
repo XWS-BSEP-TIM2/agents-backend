@@ -5,7 +5,6 @@ go 1.15
 require (
 	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible
-	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.0
 	github.com/opentracing/opentracing-go v1.2.0
