@@ -4,7 +4,7 @@ import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.security.JwtUtil;
 import com.dislinkt.agents.security.model.AuthenticationRequest;
 import com.dislinkt.agents.security.model.AuthenticationResponse;
-import com.dislinkt.agents.service.UserService;
+import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

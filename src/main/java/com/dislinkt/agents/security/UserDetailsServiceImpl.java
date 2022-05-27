@@ -1,7 +1,7 @@
 package com.dislinkt.agents.security;
 
 import com.dislinkt.agents.model.ApplicationUser;
-import com.dislinkt.agents.service.UserService;
+import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

@@ -1,11 +1,15 @@
 package com.dislinkt.agents.service;
 
 
+import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.ApplicationUserRole;
+import com.dislinkt.agents.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -14,10 +18,33 @@ public class UserServiceImpl implements UserService {
     private MongoTemplate mongoTemplate;
 
     @Override
+    public List<ApplicationUser> findAll() {
+        return mongoTemplate.findAll(ApplicationUser.class);
+    }
+
+    @Override
+    public ApplicationUser findById(String id) {
+        return mongoTemplate.findById(id, ApplicationUser.class);
+    }
+
+    @Override
     public ApplicationUser findByEmail(String email) {
-        ApplicationUser user = new ApplicationUser("2", "Tara", "Pogancev", "t@g.c", "123", ApplicationUserRole.USER);
-        mongoTemplate.save(user);
-        return user;
+        for (ApplicationUser user : findAll()) {
+            if (user.getEmail().equals(email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public ApplicationUser registerNewUser(UserDTO newUser) {
+        if (findByEmail(newUser.getEmail()) == null) {
+            ApplicationUser user = new ApplicationUser(null, newUser.name,
+                    newUser.surname, newUser.email, newUser.password, newUser.role);
+            return mongoTemplate.save(user);
+        }
+        return null;
     }
 
 }
