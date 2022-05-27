@@ -1,5 +1,6 @@
 package com.dislinkt.agents.security.model;
 
+import com.dislinkt.agents.model.ApplicationUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,5 +12,6 @@ public class AuthenticationResponse {
     private String fullName;
     private String email;
     private String id;
+    private ApplicationUserRole role;
 
 }
