@@ -3,7 +3,6 @@ package com.dislinkt.agents.service;
 
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
-import com.dislinkt.agents.model.ApplicationUserRole;
 import com.dislinkt.agents.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

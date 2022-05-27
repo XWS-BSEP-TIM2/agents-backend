@@ -29,6 +29,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -37,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login/**", "/login", "/register", "/register/**").permitAll()
+                .antMatchers("login", "/login", "/register", "/register/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

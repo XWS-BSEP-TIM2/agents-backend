@@ -41,10 +41,4 @@ public class LoginController {
         return ResponseEntity.ok(new AuthenticationResponse(jwt, user.getFullName(), user.getEmail(), user.getId()));
     }
 
-    @GetMapping
-    public ResponseEntity<?> test() {
-        userService.findByEmail("123");
-        return ResponseEntity.ok(null);
-    }
-
 }
