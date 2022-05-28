@@ -6,23 +6,23 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class ApplicationUser {
+public class Company {
 
     @Id
     private String id;
+    private String userId;
 
     private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private ApplicationUserRole role;
-
-    public String getFullName() {
-        return name + " " + surname;
-    }
+    private String description;
+    private String tagline;
+    private List<String> technologies;
+    private List<String> emailList;
+    private List<String> phoneNumberList;
 
 }

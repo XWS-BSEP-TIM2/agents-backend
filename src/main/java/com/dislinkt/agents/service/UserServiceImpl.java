@@ -6,6 +6,7 @@ import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email, newUser.password, newUser.role);
+                    newUser.surname, newUser.email, new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
             return mongoTemplate.save(user);
         }
         return null;

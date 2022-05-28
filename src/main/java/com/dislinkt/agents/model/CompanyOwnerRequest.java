@@ -6,23 +6,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class ApplicationUser {
+public class CompanyOwnerRequest {
 
     @Id
     private String id;
+    private String companyId;
 
-    private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private ApplicationUserRole role;
-
-    public String getFullName() {
-        return name + " " + surname;
-    }
+    private Boolean accepted;
+    private Date timestamp = new Date();
 
 }

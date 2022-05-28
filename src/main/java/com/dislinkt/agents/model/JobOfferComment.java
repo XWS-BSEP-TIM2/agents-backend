@@ -10,19 +10,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class ApplicationUser {
+public class JobOfferComment {
 
     @Id
     private String id;
+    private String userId;
+    private String jobOfferId;
 
-    private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private ApplicationUserRole role;
-
-    public String getFullName() {
-        return name + " " + surname;
-    }
+    private Integer rating;
+    private String comment;
+    private Double salary;
 
 }
