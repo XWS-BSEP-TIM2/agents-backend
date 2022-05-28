@@ -1,6 +1,6 @@
 package com.dislinkt.agents.dto;
 
-import com.dislinkt.agents.model.PostType;
+import com.dislinkt.agents.model.enums.PostType;
 import lombok.Data;
 
 import java.util.Date;

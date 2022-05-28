@@ -1,5 +1,6 @@
 package com.dislinkt.agents.model;
 
+import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,12 +1,12 @@
 package com.dislinkt.agents.model;
 
+import com.dislinkt.agents.model.enums.PostType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data

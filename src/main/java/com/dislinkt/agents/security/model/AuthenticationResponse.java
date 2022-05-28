@@ -1,6 +1,6 @@
 package com.dislinkt.agents.security.model;
 
-import com.dislinkt.agents.model.ApplicationUserRole;
+import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

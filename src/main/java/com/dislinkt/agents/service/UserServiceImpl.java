@@ -1,6 +1,7 @@
 package com.dislinkt.agents.service;
 
 
+import com.dislinkt.agents.dto.CompanyDTO;
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.service.interfaces.UserService;
@@ -44,6 +45,26 @@ public class UserServiceImpl implements UserService {
                     newUser.surname, newUser.email, new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
             return mongoTemplate.save(user);
         }
+        return null;
+    }
+
+    @Override
+    public boolean sendCompanyOwnerRequest(CompanyDTO company) {
+        return false;
+    }
+
+    @Override
+    public boolean acceptCompanyOwnerRequest(CompanyDTO company) {
+        return false;
+    }
+
+    @Override
+    public boolean rejectCompanyOwnerRequest(CompanyDTO company) {
+        return false;
+    }
+
+    @Override
+    public UserDTO findByIdDTO(String userId) {
         return null;
     }
 

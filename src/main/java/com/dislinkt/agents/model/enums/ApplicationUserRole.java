@@ -1,4 +1,4 @@
-package com.dislinkt.agents.model;
+package com.dislinkt.agents.model.enums;
 
 public enum ApplicationUserRole {
     USER,
