@@ -1,6 +1,5 @@
 package com.dislinkt.agents.controller;
 
-import com.dislinkt.agents.converter.DataConverter;
 import com.dislinkt.agents.dto.*;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.service.interfaces.CompanyService;
@@ -24,12 +23,10 @@ public class BrowseController {
     private final CompanyService companyService;
     private final PostService postService;
     private final JobOfferService jobOfferService;
-    private final DataConverter converter;
 
     @GetMapping("/users")
     public List<UserDTO> getAllUsers() {
-        List<ApplicationUser> users = this.userService.findAll();
-        return converter.convert(users, UserDTO.class);
+        return this.userService.findAllDTO();
     }
 
     @GetMapping("/user/{userId}")

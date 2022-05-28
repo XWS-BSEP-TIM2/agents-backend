@@ -1,6 +1,5 @@
 package com.dislinkt.agents.controller;
 
-import com.dislinkt.agents.converter.DataConverter;
 import com.dislinkt.agents.dto.CompanyDTO;
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
@@ -15,16 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
-    private final DataConverter converter;
-
-    @GetMapping("/{userId}")
-    public UserDTO getUserById(@PathVariable String userId) {
-        ApplicationUser user = userService.findById(userId);
-        if (user == null) {
-            return null;
-        }
-        else return converter.convert(user, UserDTO.class);
-    }
 
     @PostMapping("/company-owner-request")
     @PreAuthorize("hasRole('USER')")

@@ -16,8 +16,13 @@ public class CompanyServiceImpl implements CompanyService {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<Company> findAll() {
+    public Company getCompanyByUserId(String id) {
         return null;
+    }
+
+    @Override
+    public List<Company> findAll() {
+        return mongoTemplate.findAll(Company.class);
     }
 
     @Override

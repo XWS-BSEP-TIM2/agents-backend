@@ -23,4 +23,6 @@ public interface UserService {
     boolean rejectCompanyOwnerRequest(CompanyDTO company);
 
     UserDTO findByIdDTO(String userId);
+
+    List<UserDTO> findAllDTO();
 }

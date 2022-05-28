@@ -6,14 +6,18 @@ import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.Company;
 import com.dislinkt.agents.model.CompanyOwnerRequest;
+import com.dislinkt.agents.model.Post;
 import com.dislinkt.agents.model.enums.ApplicationUserRole;
+import com.dislinkt.agents.model.enums.PostType;
 import com.dislinkt.agents.service.interfaces.CompanyService;
+import com.dislinkt.agents.service.interfaces.ConverterService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private CompanyService companyService;
+
+    @Autowired
+    private ConverterService converterService;
 
     @Override
     public List<ApplicationUser> findAll() {
@@ -50,7 +57,14 @@ public class UserServiceImpl implements UserService {
         if (findByEmail(newUser.getEmail()) == null) {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
                     newUser.surname, newUser.email, new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
-            return mongoTemplate.save(user);
+            user = mongoTemplate.save(user);
+
+            Post post = new Post();
+            post.setUserId(user.getId());
+            post.setPostType(PostType.NEW_USER);
+            mongoTemplate.save(post);
+
+            return user;
         }
         return null;
     }
@@ -88,11 +102,16 @@ public class UserServiceImpl implements UserService {
 
                 Company newCompany = mongoTemplate.findById(company.getId(), Company.class);
                 newCompany.setVerified(true);
-                mongoTemplate.save(newCompany);
+                newCompany = mongoTemplate.save(newCompany);
 
                 ApplicationUser companyOwner = mongoTemplate.findById(newCompany.getUserId(), ApplicationUser.class);
                 companyOwner.setRole(ApplicationUserRole.COMPANY_OWNER);
-                mongoTemplate.save(companyOwner);
+                companyOwner = mongoTemplate.save(companyOwner);
+
+                Post post = new Post();
+                post.setCompanyId(newCompany.getId());
+                post.setPostType(PostType.NEW_COMPANY);
+                mongoTemplate.save(post);
 
                 return true;
             }
@@ -119,14 +138,17 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             return null;
         } else {
-            UserDTO dto = new UserDTO();
-            dto.setId(user.getId());
-            dto.setSurname(user.getSurname());
-            dto.setName(user.getName());
-            dto.setEmail(user.getEmail());
-            dto.setRole(user.getRole());
-            return dto;
+            return converterService.userToDto(user);
         }
+    }
+
+    @Override
+    public List<UserDTO> findAllDTO() {
+        List<UserDTO> retVal = new ArrayList<>();
+        for (ApplicationUser user: findAll()) {
+            retVal.add(converterService.userToDto(user));
+        }
+        return retVal;
     }
 
 }
