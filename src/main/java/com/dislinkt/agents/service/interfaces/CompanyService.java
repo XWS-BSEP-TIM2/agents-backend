@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface CompanyService {
 
+    Company getCompanyByUserId(String id);
+
     List<Company> findAll();
 
     List<CompanyDTO> findAllDTO();

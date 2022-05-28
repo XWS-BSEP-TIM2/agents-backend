@@ -25,4 +25,6 @@ public class Company {
     private List<String> emailList;
     private List<String> phoneNumberList;
 
+    private boolean verified = false;
+
 }

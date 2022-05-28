@@ -18,7 +18,7 @@ public class CompanyOwnerRequest {
     private String id;
     private String companyId;
 
-    private Boolean accepted;
+    private Boolean accepted = false;
     private Date timestamp = new Date();
 
 }
