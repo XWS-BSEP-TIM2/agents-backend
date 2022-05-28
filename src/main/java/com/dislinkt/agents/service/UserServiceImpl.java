@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -56,7 +57,7 @@ public class UserServiceImpl implements UserService {
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email, new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
             user = mongoTemplate.save(user);
 
             Post post = new Post();

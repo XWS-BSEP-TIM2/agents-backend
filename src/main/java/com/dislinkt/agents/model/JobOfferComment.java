@@ -18,7 +18,7 @@ public class JobOfferComment {
     private String jobOfferId;
 
     private Integer rating;
-    private String comment;
     private Double salary;
+    private String comment;
 
 }
