@@ -28,7 +28,7 @@ public class JobOfferController {
 
     @PostMapping("/comment")
     @PreAuthorize("hasRole('USER')")
-    public JobOfferComment postNewOffer(@RequestBody JobOfferCommentDTO comment) {
+    public JobOfferComment postNewOfferComment(@RequestBody JobOfferCommentDTO comment) {
         return jobOfferService.postNewComment(comment);
     }
 
@@ -38,7 +38,7 @@ public class JobOfferController {
         return jobOfferService.updateOffer(jobOffer);
     }
 
-    @DeleteMapping
+    @PutMapping("/delete")
     @PreAuthorize("hasRole('COMPANY_OWNER')")
     public boolean deleteOffer(@RequestBody JobOfferDTO jobOffer) {
         return jobOfferService.deleteOffer(jobOffer);

@@ -22,22 +22,22 @@ public class ConverterServiceImpl implements ConverterService {
 
         switch (post.getPostType()) {
             case NEW_USER:
-                ApplicationUser user = mongoTemplate.findById(post.getUserId(), ApplicationUser.class);
-                if (user != null) {
+                if (post.getUserId() != null) {
+                    ApplicationUser user = mongoTemplate.findById(post.getUserId(), ApplicationUser.class);
                     dto.setUser(userToDto(user));
                 }
                 break;
 
             case NEW_COMPANY:
-                Company company = mongoTemplate.findById(post.getCompanyId(), Company.class);
-                if (company != null) {
+                if (post.getCompanyId() != null) {
+                    Company company = mongoTemplate.findById(post.getCompanyId(), Company.class);
                     dto.setCompany(companyToDto(company));
                 }
                 break;
 
             case NEW_JOB_OFFER:
-                JobOffer jobOffer = mongoTemplate.findById(post.getJobOfferId(), JobOffer.class);
-                if (jobOffer != null) {
+                if (post.getJobOfferId() != null) {
+                    JobOffer jobOffer = mongoTemplate.findById(post.getJobOfferId(), JobOffer.class);
                     dto.setJobOffer(jobOfferToDto(jobOffer));
                 }
                 break;

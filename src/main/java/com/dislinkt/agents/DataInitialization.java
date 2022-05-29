@@ -234,7 +234,7 @@ public class DataInitialization {
         mongoTemplate.save(post1);
 
         Post post2 = new Post();
-        post1.setUserId(user2.getId());
+        post2.setUserId(user2.getId());
         post2.setPostType(PostType.NEW_USER);
         mongoTemplate.save(post2);
 

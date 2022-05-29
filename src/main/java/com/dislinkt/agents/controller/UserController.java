@@ -21,13 +21,13 @@ public class UserController {
         return this.userService.sendCompanyOwnerRequest(company);
     }
 
-    @PostMapping("company-owner-request/accept")
+    @PostMapping("/company-owner-request/accept")
     @PreAuthorize("hasRole('ADMIN')")
     public boolean acceptCompanyOwnerRequest(@RequestBody CompanyDTO company) {
         return this.userService.acceptCompanyOwnerRequest(company);
     }
 
-    @DeleteMapping("company-owner-request/reject")
+    @PutMapping("/company-owner-request/reject")
     @PreAuthorize("hasRole('ADMIN')")
     public boolean rejectCompanyOwnerRequest(@RequestBody CompanyDTO company) {
         return this.userService.rejectCompanyOwnerRequest(company);
