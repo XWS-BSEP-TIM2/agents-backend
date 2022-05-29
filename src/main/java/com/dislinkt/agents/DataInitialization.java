@@ -32,14 +32,14 @@ public class DataInitialization {
         // USERS
         String simplePassword = "$2a$12$eWlLSJGnjzzaAUOevPWpBetvfgbQOZliAEe4iQM1kSPNGby3V8Dhu";
 
-        ApplicationUser user1 = new ApplicationUser(null, "Jack", "Smith", "jack@gmail.com", simplePassword, ApplicationUserRole.USER);
-        ApplicationUser user2 = new ApplicationUser(null, "Alvin", "Ellison", "alvin@gmail.com", simplePassword, ApplicationUserRole.USER);
-        ApplicationUser user3 = new ApplicationUser(null, "Eadie", "Martins", "eadie@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user4 = new ApplicationUser(null, "India", "Olsen", "india@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user5 = new ApplicationUser(null, "Saskia", "Rees", "saskia@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user6 = new ApplicationUser(null, "Emmett", "Lutz", "emmet@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user7 = new ApplicationUser(null, "Maddie", "Gray", "maddie@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user8 = new ApplicationUser(null, "Tara", "Pogancev", "admin@gmail.com", simplePassword, ApplicationUserRole.ADMIN);
+        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "jack@gmail.com", simplePassword, ApplicationUserRole.USER);
+        ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "alvin@gmail.com", simplePassword, ApplicationUserRole.USER);
+        ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "saskia@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "admin@gmail.com", simplePassword, ApplicationUserRole.ADMIN);
 
         user1 = mongoTemplate.save(user1);
         user2 = mongoTemplate.save(user2);
