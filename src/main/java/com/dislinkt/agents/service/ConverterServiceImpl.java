@@ -106,4 +106,15 @@ public class ConverterServiceImpl implements ConverterService {
 
         return dto;
     }
+
+    @Override
+    public CompanyOwnerRequestDTO requestToDto(CompanyOwnerRequest request) {
+        CompanyOwnerRequestDTO dto = new CompanyOwnerRequestDTO();
+        dto.setId(request.getId());
+        dto.setTimestamp(request.getTimestamp());
+        dto.setAccepted(request.getAccepted());
+        Company company = mongoTemplate.findById(request.getCompanyId(), Company.class);
+        dto.setCompany(companyToDto(company));
+        return dto;
+    }
 }

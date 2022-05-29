@@ -1,6 +1,7 @@
 package com.dislinkt.agents.service.interfaces;
 
 import com.dislinkt.agents.dto.CompanyDTO;
+import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
 
@@ -25,4 +26,6 @@ public interface UserService {
     UserDTO findByIdDTO(String userId);
 
     List<UserDTO> findAllDTO();
+
+    List<CompanyOwnerRequestDTO> getCompanyOwnerRequests();
 }

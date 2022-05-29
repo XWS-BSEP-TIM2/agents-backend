@@ -15,4 +15,5 @@ public interface ConverterService {
 
     JobOfferCommentDTO commentToDto(JobOfferComment comment);
 
+    CompanyOwnerRequestDTO requestToDto(CompanyOwnerRequest request);
 }

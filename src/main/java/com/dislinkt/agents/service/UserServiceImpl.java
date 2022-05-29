@@ -2,6 +2,7 @@ package com.dislinkt.agents.service;
 
 
 import com.dislinkt.agents.dto.CompanyDTO;
+import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.Company;
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.role);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, newUser.role);
             user = mongoTemplate.save(user);
 
             Post post = new Post();
@@ -86,6 +87,7 @@ public class UserServiceImpl implements UserService {
 
             CompanyOwnerRequest request = new CompanyOwnerRequest();
             request.setCompanyId(newCompany.getId());
+            mongoTemplate.save(request);
 
             return true;
 
@@ -98,8 +100,7 @@ public class UserServiceImpl implements UserService {
     public boolean acceptCompanyOwnerRequest(CompanyDTO company) {
         for (CompanyOwnerRequest request : mongoTemplate.findAll(CompanyOwnerRequest.class)) {
             if (request.getCompanyId().equals(company.getId())) {
-                request.setAccepted(true);
-                mongoTemplate.save(request);
+                mongoTemplate.remove(request);
 
                 Company newCompany = mongoTemplate.findById(company.getId(), Company.class);
                 newCompany.setVerified(true);
@@ -148,6 +149,15 @@ public class UserServiceImpl implements UserService {
         List<UserDTO> retVal = new ArrayList<>();
         for (ApplicationUser user: findAll()) {
             retVal.add(converterService.userToDto(user));
+        }
+        return retVal;
+    }
+
+    @Override
+    public List<CompanyOwnerRequestDTO> getCompanyOwnerRequests() {
+        List<CompanyOwnerRequestDTO> retVal = new ArrayList<>();
+        for (CompanyOwnerRequest request: mongoTemplate.findAll(CompanyOwnerRequest.class)) {
+            retVal.add(converterService.requestToDto(request));
         }
         return retVal;
     }
