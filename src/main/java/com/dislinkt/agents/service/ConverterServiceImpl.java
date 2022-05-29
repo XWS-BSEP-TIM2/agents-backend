@@ -54,6 +54,7 @@ public class ConverterServiceImpl implements ConverterService {
         dto.setName(user.getName());
         dto.setSurname(user.getSurname());
         dto.setRole(user.getRole());
+        dto.setApiToken(user.getApiToken());
         return dto;
     }
 

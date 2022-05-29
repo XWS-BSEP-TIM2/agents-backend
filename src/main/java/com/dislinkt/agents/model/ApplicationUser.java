@@ -20,6 +20,7 @@ public class ApplicationUser {
     private String surname;
     private String email;
     private String password;
+    public String apiToken;
     private ApplicationUserRole role;
 
     public String getFullName() {
