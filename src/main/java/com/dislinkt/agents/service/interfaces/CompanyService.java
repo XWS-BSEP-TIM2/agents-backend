@@ -16,4 +16,6 @@ public interface CompanyService {
     CompanyDTO findByIdDTO(String companyId);
 
     boolean update(CompanyDTO company);
+
+    CompanyDTO findByUserIdDTO(String userId);
 }

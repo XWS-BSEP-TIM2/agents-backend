@@ -21,4 +21,6 @@ public interface JobOfferService {
     JobOffer updateOffer(JobOfferDTO jobOffer);
 
     boolean deleteOffer(JobOfferDTO jobOffer);
+
+    List<JobOfferDTO> findAllByCompanyIdDTO(String companyId);
 }

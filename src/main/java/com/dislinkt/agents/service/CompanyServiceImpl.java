@@ -22,6 +22,11 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company getCompanyByUserId(String id) {
+        for (Company company: mongoTemplate.findAll(Company.class)) {
+            if (company.getUserId().equals(id)) {
+                return company;
+            }
+        }
         return null;
     }
 
@@ -66,5 +71,15 @@ public class CompanyServiceImpl implements CompanyService {
             return false;
         }
 
+    }
+
+    @Override
+    public CompanyDTO findByUserIdDTO(String userId) {
+        Company company = getCompanyByUserId(userId);
+        if (company != null) {
+            return converterService.companyToDto(company);
+        } else {
+            return null;
+        }
     }
 }

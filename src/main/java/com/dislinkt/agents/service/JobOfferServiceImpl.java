@@ -123,4 +123,15 @@ public class JobOfferServiceImpl implements JobOfferService {
             return false;
         }
     }
+
+    @Override
+    public List<JobOfferDTO> findAllByCompanyIdDTO(String companyId) {
+        List<JobOfferDTO> retVal = new ArrayList<>();
+        for (JobOfferDTO dto: findAllDTO()) {
+            if (dto.company.id.equals(companyId)) {
+                retVal.add(dto);
+            }
+        }
+        return retVal;
+    }
 }

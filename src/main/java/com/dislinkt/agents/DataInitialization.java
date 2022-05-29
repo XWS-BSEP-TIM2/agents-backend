@@ -134,7 +134,7 @@ public class DataInitialization {
             }
         }, true);
 
-        Company company5 = new Company(null, user6.getId(), "AMD Radeon Software", "AMD Radeon Software is a device driver and utility software package for Advanced Micro Devices's graphics cards and APUs.",
+        Company company5 = new Company(null, user7.getId(), "AMD Radeon Software", "AMD Radeon Software is a device driver and utility software package for Advanced Micro Devices's graphics cards and APUs.",
                 "Engineered for Gamers.", new ArrayList<String>(){
             {
                 add("C#");

@@ -44,6 +44,11 @@ public class BrowseController {
         return this.companyService.findByIdDTO(companyId);
     }
 
+    @GetMapping("/company/user/{userId}")
+    public CompanyDTO getCompanyByUserId(@PathVariable String userId) {
+        return this.companyService.findByUserIdDTO(userId);
+    }
+
     @GetMapping("/posts")
     public List<PostDTO> getAllPosts() {
         return this.postService.findAllDTO();
@@ -62,6 +67,11 @@ public class BrowseController {
     @GetMapping("/job-offer/{offerId}")
     public JobOfferDTO getJobOffer(@PathVariable String offerId) {
         return this.jobOfferService.findByIdDTO(offerId);
+    }
+
+    @GetMapping("/job-offers/company/{companyId}")
+    public List<JobOfferDTO> getAllJobOffersByCompany(@PathVariable String companyId) {
+        return this.jobOfferService.findAllByCompanyIdDTO(companyId);
     }
 
     @GetMapping("/job-offer/comments/{offerId}")
