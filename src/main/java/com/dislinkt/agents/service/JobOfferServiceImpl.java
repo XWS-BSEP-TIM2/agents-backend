@@ -105,8 +105,10 @@ public class JobOfferServiceImpl implements JobOfferService {
         JobOffer offer = mongoTemplate.findById(jobOffer.id, JobOffer.class);
         if (offer != null) {
             for (Post post: mongoTemplate.findAll(Post.class)) {
-                if (post.getJobOfferId().equals(offer.getId())) {
-                    mongoTemplate.remove(post);
+                if (post.getPostType() == PostType.NEW_JOB_OFFER) {
+                    if (post.getJobOfferId().equals(offer.getId())) {
+                        mongoTemplate.remove(post);
+                    }
                 }
             }
 
