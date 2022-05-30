@@ -2,16 +2,12 @@ package com.dislinkt.agents.controller;
 
 import com.dislinkt.agents.dto.JobOfferCommentDTO;
 import com.dislinkt.agents.dto.JobOfferDTO;
-import com.dislinkt.agents.dto.UserDTO;
-import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.JobOffer;
 import com.dislinkt.agents.model.JobOfferComment;
 import com.dislinkt.agents.service.interfaces.JobOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

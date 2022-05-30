@@ -38,8 +38,8 @@ public class DataInitialization {
         ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER);
         ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER);
         ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "saskia@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER);
-        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, "adadqbek123krmtgk123e1rff", ApplicationUserRole.COMPANY_OWNER);
+        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, "adadqbek123krmtgk123e1rfd", ApplicationUserRole.COMPANY_OWNER);
         ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "admin@gmail.com", simplePassword, "", ApplicationUserRole.ADMIN);
 
         user1 = mongoTemplate.save(user1);
@@ -163,23 +163,23 @@ public class DataInitialization {
         company5 = mongoTemplate.save(company5);
 
         // JOB OFFERS
-        JobOffer offer1 = new JobOffer(null, company1.getId(), company1.getUserId(), ".NET Developer", "Medior", "Join the team of Schneider Electric Software Engineers delivering customized solutions for utility companies around the world. We are helping utilities to modernize their management of distribution systems. The meaningful and leading software solution is something that takes us from “good” to “great”. Discover the opportunity to join a dynamic, inspiring, and responsible team that fosters the development of its people.",
+        JobOffer offer1 = new JobOffer(null, company1.getId(), company1.getUserId(),".NET Developer", "Medior", "Join the team of Schneider Electric Software Engineers delivering customized solutions for utility companies around the world. We are helping utilities to modernize their management of distribution systems. The meaningful and leading software solution is something that takes us from “good” to “great”. Discover the opportunity to join a dynamic, inspiring, and responsible team that fosters the development of its people.",
                 new ArrayList<String>(){
                     {
                         add("C#");
                         add("C++");
                         add(".NET");
                     }
-                });
+                },false);
 
-        JobOffer offer2 = new JobOffer(null, company2.getId(), company2.getUserId(), "Frontend Software Engineer", "Junior", "Software Developers at IBM are the backbone of our strategic initiatives to design, code, test, and provide industry-leading solutions that make the world run today - planes and trains take off on time.",
+        JobOffer offer2 = new JobOffer(null, company2.getId(), company2.getUserId(),"Frontend Software Engineer", "Junior", "Software Developers at IBM are the backbone of our strategic initiatives to design, code, test, and provide industry-leading solutions that make the world run today - planes and trains take off on time.",
                 new ArrayList<String>(){
                     {
                         add("Javascript");
                         add("Angular");
                         add("React");
                     }
-                });
+                },false);
 
         JobOffer offer3 = new JobOffer(null, company3.getId(), company3.getUserId(), "Mobile Developer", "Junior", "On the Front-End side, you will work on a React based UI which is tuned for high performance using a modern reactive approach. At Instana, we process and analyze millions of spans, traces.",
                 new ArrayList<String>(){
@@ -188,24 +188,24 @@ public class DataInitialization {
                         add("Mobile");
                         add("Kotlin");
                     }
-                });
+                },false);
 
-        JobOffer offer4 = new JobOffer(null, company4.getId(), company4.getUserId(), "UI/UX Designer", "Senior", "Spiralyze is a data-driven A/B testing company headquartered in the United States with clients from major brands such as Pepsi, Netflix, General Electric, Abbott, American Express, Dream Host, TechSmith, VWO, and many more. We use design and optimization to help our clients generate more revenue from their website traffic.",
+        JobOffer offer4 = new JobOffer(null, company4.getId(), company4.getUserId(),"UI/UX Designer", "Senior", "Spiralyze is a data-driven A/B testing company headquartered in the United States with clients from major brands such as Pepsi, Netflix, General Electric, Abbott, American Express, Dream Host, TechSmith, VWO, and many more. We use design and optimization to help our clients generate more revenue from their website traffic.",
                 new ArrayList<String>(){
                     {
                         add("WPF");
                         add("Javascript");
                     }
-                });
+                },false);
 
-        JobOffer offer5 = new JobOffer(null, company5.getId(), company5.getUserId(), "Full-stack Engineer", "Junior", "The bulk of the work we do every day is a mix of Back-end work in Ruby and Front-end work in React. If you have back-end skills and if you are comfortable getting your hands dirty in the front-end as well, this is the right opportunity for you.",
+        JobOffer offer5 = new JobOffer(null, company5.getId(), company5.getUserId(),"Full-stack Engineer", "Junior", "The bulk of the work we do every day is a mix of Back-end work in Ruby and Front-end work in React. If you have back-end skills and if you are comfortable getting your hands dirty in the front-end as well, this is the right opportunity for you.",
                 new ArrayList<String>(){
                     {
                         add("Java");
                         add("C++");
                         add("Spring");
                     }
-                });
+                },false);
 
         offer1 = mongoTemplate.save(offer1);
         offer2 = mongoTemplate.save(offer2);

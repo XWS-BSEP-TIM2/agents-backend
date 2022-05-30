@@ -18,10 +18,10 @@ public class JobOffer {
     private String id;
     private String companyId;
     private String userId;
-
     private String position;
     private String seniority;
     private String description;
     private List<String> technologies;
+    private boolean promotedOnDislinkt;
 
 }
