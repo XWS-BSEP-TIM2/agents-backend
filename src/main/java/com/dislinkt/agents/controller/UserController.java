@@ -42,4 +42,11 @@ public class UserController {
         return this.userService.getCompanyOwnerRequests();
     }
 
+    @PutMapping("/apiToken")
+    @PreAuthorize("hasRole('COMPANY_OWNER')")
+    public boolean getCompanyOwnerRequests(@RequestBody UserDTO user) {
+        return this.userService.updateApiToken(user);
+    }
+
+
 }

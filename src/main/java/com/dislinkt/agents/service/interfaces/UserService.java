@@ -28,4 +28,6 @@ public interface UserService {
     List<UserDTO> findAllDTO();
 
     List<CompanyOwnerRequestDTO> getCompanyOwnerRequests();
+
+    boolean updateApiToken(UserDTO user);
 }

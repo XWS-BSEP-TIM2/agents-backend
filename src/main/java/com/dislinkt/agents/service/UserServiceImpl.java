@@ -162,4 +162,15 @@ public class UserServiceImpl implements UserService {
         return retVal;
     }
 
+    @Override
+    public boolean updateApiToken(UserDTO user) {
+        ApplicationUser userToUpdate = mongoTemplate.findById(user.id, ApplicationUser.class);
+        if (userToUpdate != null) {
+            userToUpdate.setApiToken(user.apiToken);
+            mongoTemplate.save(userToUpdate);
+            return true;
+        }
+        return false;
+    }
+
 }
