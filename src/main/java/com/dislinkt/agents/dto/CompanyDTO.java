@@ -15,5 +15,6 @@ public class CompanyDTO {
     public List<String> technologies;
     public List<String> emailList;
     public List<String> phoneNumberList;
+    public Boolean verified;
 
 }

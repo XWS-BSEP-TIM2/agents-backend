@@ -68,6 +68,7 @@ public class ConverterServiceImpl implements ConverterService {
         dto.setPhoneNumberList(company.getPhoneNumberList());
         dto.setTagline(company.getTagline());
         dto.setTechnologies(company.getTechnologies());
+        dto.setVerified(company.isVerified());
 
         ApplicationUser companyOwner = mongoTemplate.findById(company.getUserId(), ApplicationUser.class);
         dto.setUser(userToDto(companyOwner));
