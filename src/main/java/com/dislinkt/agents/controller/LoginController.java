@@ -4,6 +4,7 @@ import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.security.JwtUtil;
 import com.dislinkt.agents.security.model.AuthenticationRequest;
 import com.dislinkt.agents.security.model.AuthenticationResponse;
+import com.dislinkt.agents.service.LoggingService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -28,6 +29,7 @@ public class LoginController {
     private final UserDetailsService userDetailsService;
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
+    private final LoggingService loggingService;
 
 
     @PostMapping
@@ -36,7 +38,9 @@ public class LoginController {
             UsernamePasswordAuthenticationToken token =
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(), authenticationRequest.getPassword());
             authenticationManager.authenticate(token);
+            loggingService.MakeInfoLog("User: "+ authenticationRequest.getEmail() + " logging in.");
         } catch (BadCredentialsException e) {
+            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tryed to log in with bad credentials.");
             throw new Exception("Incorrect email or password.", e);
         }
 
