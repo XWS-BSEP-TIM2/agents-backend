@@ -18,6 +18,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -33,6 +35,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ConverterService converterService;
+
+    public static String QR_PREFIX = "https://chart.googleapis.com/chart?chs=200x200&chld=M%%7C0&cht=qr&chl=";
+
+    public static String APP_NAME = "DISLINKT_AGENTS";
 
     @Override
     public List<ApplicationUser> findAll() {
@@ -58,7 +64,7 @@ public class UserServiceImpl implements UserService {
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, newUser.role);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, newUser.role,"",false);
             user = mongoTemplate.save(user);
 
             Post post = new Post();
@@ -171,6 +177,17 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String generateQUrl(String userId) {
+        ApplicationUser user=mongoTemplate.findById(userId, ApplicationUser.class);
+        try {
+            return QR_PREFIX + URLEncoder.encode(String.format("otpauth://totp/%s:%s?secret=%s&issuer=%s", APP_NAME, user.getEmail(), user.getSecret(), APP_NAME), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

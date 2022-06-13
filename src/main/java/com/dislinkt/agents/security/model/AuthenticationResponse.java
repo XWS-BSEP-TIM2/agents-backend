@@ -13,5 +13,6 @@ public class AuthenticationResponse {
     private String email;
     private String id;
     private ApplicationUserRole role;
+    private boolean twoFactor;
 
 }

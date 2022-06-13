@@ -1,11 +1,15 @@
 package com.dislinkt.agents.controller;
 
+import com.dislinkt.agents.dto.QrCodeDto;
+import com.dislinkt.agents.dto.UserDTO;
+import com.dislinkt.agents.dto.VerifyQrCodeDto;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.security.JwtUtil;
 import com.dislinkt.agents.security.model.AuthenticationRequest;
 import com.dislinkt.agents.security.model.AuthenticationResponse;
 import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
+import org.jboss.aerogear.security.otp.Totp;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +22,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import javax.websocket.server.PathParam;
 
 @RestController
 @RequiredArgsConstructor
@@ -42,22 +48,39 @@ public class LoginController {
 
         ApplicationUser user = userService.findByEmail(authenticationRequest.getEmail());
 
+        String jwt="";
+        boolean twoFactor=true;
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
-        final String jwt = jwtUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new AuthenticationResponse(jwt, user.getFullName(), user.getEmail(), user.getId(), user.getRole()));
+        if (!user.isUseTwoFactor()){
+             jwt= jwtUtil.generateToken(userDetails);
+             twoFactor=false;
+        }
+
+        return ResponseEntity.ok(new AuthenticationResponse(jwt, user.getFullName(), user.getEmail(), user.getId(), user.getRole(),twoFactor));
     }
 
-    @GetMapping
-    public String sendRequestTest(){
-        RestTemplate restTemplate;
-        RestTemplateBuilder restTemplateBuilder=new RestTemplateBuilder();
-        restTemplate = restTemplateBuilder.build();
-        String url = "http://localhost:9000/test";
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization","Bearer "+jwtUtil.generateApiToken("API","lln8Z4GiwdwJxzzxjil8GbaLpswZs"));
-        final HttpEntity<String> entity = new HttpEntity<String>(headers);
-        ResponseEntity<String> ret=restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
-        return ret.toString();
+    @GetMapping("/generate-qr/{id}")
+    public ResponseEntity<QrCodeDto> generateQrCode(@PathVariable("id") String userId){
+        String qr=userService.generateQUrl(userId);
+        if (qr==null){
+            return (ResponseEntity<QrCodeDto>) ResponseEntity.internalServerError();
+        }else{
+            return ResponseEntity.ok(new QrCodeDto(qr));
+        }
     }
+
+    @PostMapping("/verify-qr")
+    public ResponseEntity<?> verifyQrCode(@RequestBody VerifyQrCodeDto dto){
+        ApplicationUser user = userService.findById(dto.getUserId());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
+        Totp totp = new Totp(user.getSecret());
+        if (!totp.verify(dto.getCode())) {
+            throw new BadCredentialsException("Invalid verification code");
+        }else{
+            return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails), user.getFullName(), user.getEmail(), user.getId(), user.getRole(),true));
+        }
+    }
+
+
 
 }

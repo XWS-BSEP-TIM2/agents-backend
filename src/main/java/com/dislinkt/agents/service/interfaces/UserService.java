@@ -30,4 +30,7 @@ public interface UserService {
     List<CompanyOwnerRequestDTO> getCompanyOwnerRequests();
 
     boolean updateApiToken(UserDTO user);
+
+    String generateQUrl(String userId);
+
 }

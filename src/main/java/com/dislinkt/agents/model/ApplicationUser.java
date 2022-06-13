@@ -22,6 +22,8 @@ public class ApplicationUser {
     private String password;
     public String apiToken;
     private ApplicationUserRole role;
+    private String secret;
+    private boolean useTwoFactor;
 
     public String getFullName() {
         return name + " " + surname;
