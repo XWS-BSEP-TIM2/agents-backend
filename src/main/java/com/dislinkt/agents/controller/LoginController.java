@@ -1,19 +1,18 @@
 package com.dislinkt.agents.controller;
 
 import com.dislinkt.agents.dto.QrCodeDto;
-import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.dto.VerifyQrCodeDto;
 import com.dislinkt.agents.model.ApplicationUser;
+import com.dislinkt.agents.model.PasswordlessToken;
 import com.dislinkt.agents.security.JwtUtil;
 import com.dislinkt.agents.security.model.AuthenticationRequest;
 import com.dislinkt.agents.security.model.AuthenticationResponse;
+import com.dislinkt.agents.service.PasswordlessTokenLoginService;
+import com.dislinkt.agents.service.interfaces.MailingService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.jboss.aerogear.security.otp.Totp;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,9 +20,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
-import javax.websocket.server.PathParam;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,6 +30,8 @@ public class LoginController {
     private final UserDetailsService userDetailsService;
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
+    private final MailingService emailService;
+    private final PasswordlessTokenLoginService passwordlessTokenRegistrationService;
 
 
     @PostMapping
@@ -78,6 +76,29 @@ public class LoginController {
             throw new BadCredentialsException("Invalid verification code");
         }else{
             return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails), user.getFullName(), user.getEmail(), user.getId(), user.getRole(),true));
+        }
+    }
+
+    @GetMapping("send-mail/{mail}")
+    public ResponseEntity<?> sendMail(@PathVariable("mail") String mail){
+        if (emailService.sendMagicTokenMail(mail)){
+            return new  ResponseEntity("Success", HttpStatus.OK);
+        }else{
+            return new  ResponseEntity("Wrong mail",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("verify-magic-link/{code}")
+    public ResponseEntity<?> verifyMagicLink(@PathVariable("code") String tokenCode){
+
+        if (passwordlessTokenRegistrationService.verifyToken(tokenCode)){
+            PasswordlessToken token=passwordlessTokenRegistrationService.getTokenByCode(tokenCode);
+            ApplicationUser user = userService.findById(token.getUserId());
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
+            passwordlessTokenRegistrationService.deleteToken(token.getId());
+            return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails), user.getFullName(), user.getEmail(), user.getId(), user.getRole(),user.isUseTwoFactor()));
+        }else{
+            return new ResponseEntity<>("Error",HttpStatus.UNAUTHORIZED);
         }
     }
 

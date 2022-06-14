@@ -33,7 +33,7 @@ public class DataInitialization {
         // USERS
         String simplePassword = "$2a$12$eWlLSJGnjzzaAUOevPWpBetvfgbQOZliAEe4iQM1kSPNGby3V8Dhu";
 
-        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "jack@gmail.com", simplePassword, "", ApplicationUserRole.USER,"CUW732US7Y7CPRB3",true);
+        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "djordje1499@gmail.com", simplePassword, "", ApplicationUserRole.USER,"CUW732US7Y7CPRB3",true);
         ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "alvin@gmail.com", simplePassword, "", ApplicationUserRole.USER,"",false);
         ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER,"",false);
         ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER,"",false);

@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("login", "/login","/login/**","/login/verify-qr/**", "/register", "/register/**", "/browse", "/browse/**").permitAll()
+                .antMatchers("login", "/login","/login/**","/login/verify-qr/**","/login/send-mail/**", "/register", "/register/**", "/browse", "/browse/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
