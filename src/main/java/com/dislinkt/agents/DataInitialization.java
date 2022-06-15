@@ -57,9 +57,9 @@ public class DataInitialization {
             {
                 add("C#");
                 add("C++");
-                add("WPF");
-                add("Microsoft Visual Studio");
-                add("SQL");
+                add("JavaScript");
+                add("Rust");
+                add("Bootstrap");
             }
         }, new ArrayList<String>(){
             {
@@ -77,9 +77,9 @@ public class DataInitialization {
                 "Nobody makes impact alone.", new ArrayList<String>(){
             {
                 add("Java");
-                add("Javascript");
-                add("PostgreSQL");
-                add("SQL");
+                add("Kafka");
+                add("Spring Boot");
+                add("Sass");
             }
         }, new ArrayList<String>(){
             {
@@ -96,11 +96,11 @@ public class DataInitialization {
         Company company3 = new Company(null, user5.getId(), "Apple", "Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services headquartered in Cupertino, California, United States.",
                 "Discover the innovative world of Apple.", new ArrayList<String>(){
             {
-                add("C#");
+                add("Tensorflow");
                 add("C++");
                 add("Java");
-                add("Javascript");
-                add("SQL");
+                add("Kotlin");
+                add("Mongo DB");
             }
         }, new ArrayList<String>(){
             {
@@ -119,8 +119,8 @@ public class DataInitialization {
             {
                 add("C#");
                 add("Java");
-                add("WPF");
-                add("React");
+                add("GCP");
+                add("Jenkins");
                 add("Angular");
             }
         }, new ArrayList<String>(){
@@ -140,7 +140,7 @@ public class DataInitialization {
             {
                 add("C#");
                 add("C++");
-                add("Javascript");
+                add("Tailwind");
                 add("Angular");
                 add("PostgreSQL");
             }
@@ -175,7 +175,7 @@ public class DataInitialization {
         JobOffer offer2 = new JobOffer(null, company2.getId(), company2.getUserId(),"Frontend Software Engineer", "Junior", "Software Developers at IBM are the backbone of our strategic initiatives to design, code, test, and provide industry-leading solutions that make the world run today - planes and trains take off on time.",
                 new ArrayList<String>(){
                     {
-                        add("Javascript");
+                        add("iOS");
                         add("Angular");
                         add("React");
                     }
@@ -185,7 +185,7 @@ public class DataInitialization {
                 new ArrayList<String>(){
                     {
                         add("Swift");
-                        add("Mobile");
+                        add("Cypress");
                         add("Kotlin");
                     }
                 },false);
@@ -193,8 +193,8 @@ public class DataInitialization {
         JobOffer offer4 = new JobOffer(null, company4.getId(), company4.getUserId(),"UI/UX Designer", "Senior", "Spiralyze is a data-driven A/B testing company headquartered in the United States with clients from major brands such as Pepsi, Netflix, General Electric, Abbott, American Express, Dream Host, TechSmith, VWO, and many more. We use design and optimization to help our clients generate more revenue from their website traffic.",
                 new ArrayList<String>(){
                     {
-                        add("WPF");
-                        add("Javascript");
+                        add("Jenkins");
+                        add("Docker");
                     }
                 },false);
 
@@ -203,7 +203,7 @@ public class DataInitialization {
                     {
                         add("Java");
                         add("C++");
-                        add("Spring");
+                        add("Jest");
                     }
                 },false);
 
