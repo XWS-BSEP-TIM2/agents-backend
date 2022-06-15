@@ -20,7 +20,7 @@ public class MailingServiceImpl implements MailingService {
     private final EmailService emailService;
     private final UserService userService;
     private final PasswordlessTokenLoginService tokenRegistrationService;
-    private final String AGENTS_URL="http://localhost:4201";
+    private final String AGENTS_URL="https://localhost:4201";
 
     @Override
     public boolean sendMagicTokenMail(String userMail) {
