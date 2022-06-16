@@ -1,16 +1,15 @@
 package com.dislinkt.agents.service;
 
 import com.dislinkt.agents.email.context.SendPasswordlessTokenContext;
+import com.dislinkt.agents.email.context.SendVerificationCodeContext;
 import com.dislinkt.agents.email.service.EmailService;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.PasswordlessToken;
 import com.dislinkt.agents.service.interfaces.MailingService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Random;
 
@@ -20,7 +19,8 @@ public class MailingServiceImpl implements MailingService {
     private final EmailService emailService;
     private final UserService userService;
     private final PasswordlessTokenLoginService tokenRegistrationService;
-    private final String AGENTS_URL="https://localhost:4201";
+    private final String AGENTS_FRONT_URL ="https://localhost:4201";
+    private final String AGENTS_BACK_URL="https://localhost:8080";
 
     @Override
     public boolean sendMagicTokenMail(String userMail) {
@@ -37,7 +37,7 @@ public class MailingServiceImpl implements MailingService {
         token.setUserId(user.getId());
         token.setTimestamp(new Date());
         String tokenId=tokenRegistrationService.create(token);
-        context.setRedirectUrl(AGENTS_URL+"/magic-link/"+token.getCode());
+        context.setRedirectUrl(AGENTS_FRONT_URL +"/magic-link/"+token.getCode());
         context.init(user);
         emailService.sendMail(context);
         return true;
@@ -58,5 +58,15 @@ public class MailingServiceImpl implements MailingService {
 
         return str;
 
+    }
+
+    @Override
+    public boolean sendVerificationCodeMail(ApplicationUser user) {
+        if(user == null) return false;
+        SendVerificationCodeContext context = new SendVerificationCodeContext();
+        context.setRedirectUrl(AGENTS_BACK_URL + "/login/verify-acc/"+user.getId()+"/"+user.getVerificationCode());
+        context.init(user);
+        emailService.sendMail(context);
+        return true;
     }
 }

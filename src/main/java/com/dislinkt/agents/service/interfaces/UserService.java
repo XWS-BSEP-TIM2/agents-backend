@@ -33,4 +33,9 @@ public interface UserService {
 
     String generateQUrl(String userId);
 
+    void save(ApplicationUser user);
+
+    boolean verifyAcc(String userId, String verificationCode);
+
+    ApplicationUser resendVerificationCode(String email);
 }

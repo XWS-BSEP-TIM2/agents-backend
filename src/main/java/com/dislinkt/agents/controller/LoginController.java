@@ -13,6 +13,7 @@ import com.dislinkt.agents.service.LoggingService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.jboss.aerogear.security.otp.Totp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,19 +39,44 @@ public class LoginController {
     private final LoggingService loggingService;
 
 
+
     @PostMapping
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+
+        ApplicationUser user = userService.findByEmail(authenticationRequest.getEmail());
+        if(user == null){
+            loggingService.MakeWarningLog("Tried to log in with not existing email.");
+            return new ResponseEntity<>("Error: Incorrect email or password", HttpStatus.BAD_REQUEST);
+        }
+
+        if(user.isLocked()){
+            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tried to login, rejected, acc is locked");
+            return new ResponseEntity<>("Error: Your Acc is Locked, pleas recover", HttpStatus.BAD_REQUEST);
+        }
+
+        if(!user.isVerified()){
+            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tried to login, rejected, acc is not verified");
+            return new ResponseEntity<>("Error: Your Acc is not verified", HttpStatus.LOCKED);
+        }
+
+        if(!user.canTryLogin()){
+            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tried to login, rejected, cool down");
+            return new ResponseEntity<>("Error: Cool down period", HttpStatus.BAD_REQUEST);
+        }
+
         try {
             UsernamePasswordAuthenticationToken token =
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(), authenticationRequest.getPassword());
             authenticationManager.authenticate(token);
-            loggingService.MakeInfoLog("User: "+ authenticationRequest.getEmail() + " logging in.");
         } catch (BadCredentialsException e) {
-            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tryed to log in with bad credentials.");
+            loggingService.MakeWarningLog("User "+ authenticationRequest.getEmail() + " tried to log in with bad credentials.");
+            user.recordErrorLoginTry();
+            userService.save(user);
             throw new Exception("Incorrect email or password.", e);
         }
 
-        ApplicationUser user = userService.findByEmail(authenticationRequest.getEmail());
+        user.resetNumOfErrTryLogin();
+        userService.save(user);
 
         String jwt="";
         boolean twoFactor=true;
@@ -58,6 +86,7 @@ public class LoginController {
              twoFactor=false;
         }
 
+        loggingService.MakeInfoLog("User: "+ authenticationRequest.getEmail() + " Successfully logging in.");
         return ResponseEntity.ok(new AuthenticationResponse(jwt, user.getFullName(), user.getEmail(), user.getId(), user.getRole(),twoFactor));
     }
 
@@ -103,6 +132,28 @@ public class LoginController {
             return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails), user.getFullName(), user.getEmail(), user.getId(), user.getRole(),user.isUseTwoFactor()));
         }else{
             return new ResponseEntity<>("Error",HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @GetMapping("/verify-acc/{id}/{code}")
+    public ResponseEntity<?> verifyAcc(@PathVariable("id") String id, @PathVariable("code") String code){
+        if(userService.verifyAcc(id, code)){
+            return new ResponseEntity<>("Successfully verified acc",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("Error verification code are not valid or expired",HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("resend-verify-code/{email}")
+    public ResponseEntity<?> resendVerificationCode(@PathVariable("email") String email){
+        ApplicationUser user = userService.resendVerificationCode(email);
+        if(user != null){
+            emailService.sendVerificationCodeMail(user);
+            loggingService.MakeInfoLog("Successfully generated new verification code for user " + user.getEmail());
+            return new ResponseEntity<>("Successfully generated new verification code",HttpStatus.OK);
+        }else{
+            loggingService.MakeWarningLog("Error resending verification code");
+            return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
         }
     }
 

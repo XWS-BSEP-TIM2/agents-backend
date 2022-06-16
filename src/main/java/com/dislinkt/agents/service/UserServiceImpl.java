@@ -4,15 +4,16 @@ package com.dislinkt.agents.service;
 import com.dislinkt.agents.dto.CompanyDTO;
 import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
 import com.dislinkt.agents.dto.UserDTO;
+import com.dislinkt.agents.email.service.EmailService;
+import com.dislinkt.agents.email.service.EmailServiceImpl;
 import com.dislinkt.agents.model.*;
 import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import com.dislinkt.agents.model.enums.PostType;
-import com.dislinkt.agents.service.interfaces.CompanyService;
-import com.dislinkt.agents.service.interfaces.ConverterService;
-import com.dislinkt.agents.service.interfaces.RoleService;
-import com.dislinkt.agents.service.interfaces.UserService;
+import com.dislinkt.agents.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -69,7 +70,10 @@ public class UserServiceImpl implements UserService {
             Role userRole=roleService.findRoleByID(92272036854775808L);
             roleList.add(userRole);
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, roleList,"",false);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, roleList,"",false, false, false);
+
+            String verificationCode = "RandomCode123456";
+            user.setNewVerificationCode(verificationCode);
             user = mongoTemplate.save(user);
 
             Post post = new Post();
@@ -196,6 +200,38 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void save(ApplicationUser user) {
+        mongoTemplate.save(user);
+    }
+
+    @Override
+    public boolean verifyAcc(String userId, String verificationCode) {
+        ApplicationUser user = findById(userId);
+        if(user == null) return false;
+
+        if(user.isVerificationCodeNotExpired()){
+            if(user.getVerificationCode().equals(verificationCode)){
+                user.setVerified(true);
+                save(user);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public ApplicationUser resendVerificationCode(String email) {
+        ApplicationUser user = findByEmail(email);
+        if(user == null) return null;
+
+        String newVerificationCode = "newVerificationCode";
+        user.setNewVerificationCode(newVerificationCode);
+        save(user);
+
+        return user;
     }
 
 }

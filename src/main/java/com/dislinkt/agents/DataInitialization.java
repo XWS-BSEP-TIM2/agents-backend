@@ -79,14 +79,14 @@ public class DataInitialization {
         userRoles.add(role2);
         companyOwnerRoles.add(role3);
 
-        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "djordje1499@gmail.com", simplePassword, "", userRoles,"CUW732US7Y7CPRB3",true);
-        ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "alvin@gmail.com", simplePassword, "", userRoles,"",false);
-        ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
-        ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
-        ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "saskia@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
-        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, "adadqbek123krmtgk123e1rff", companyOwnerRoles,"",false);
-        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, "adadqbek123krmtgk123e1rfd", companyOwnerRoles,"",false);
-        ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "admin@gmail.com", simplePassword, "", adminRoles,"",false);
+        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "djordje1499@gmail.com", simplePassword, "", userRoles,"CUW732US7Y7CPRB3",true, false, true);
+        ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "dislinktx+alvin@gmail.com", simplePassword, "", userRoles,"",false, false, true);
+        ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "dislinktx+eadie@gmail.com", simplePassword, "", companyOwnerRoles,"",false, false, true);
+        ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "dislinktx+india@gmail.com", simplePassword, "", companyOwnerRoles,"",false, false, false);
+        ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "dislinktx+saskia@gmail.com", simplePassword, "", companyOwnerRoles,"",false, false, true);
+        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "dislinktx+emmet@gmail.com", simplePassword, "adadqbek123krmtgk123e1rff", companyOwnerRoles,"",false, false, true);
+        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "dislinktx+maddie@gmail.com", simplePassword, "adadqbek123krmtgk123e1rfd", companyOwnerRoles,"",false, false, true);
+        ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "dislinktx+tara@gmail.com", simplePassword, "", adminRoles,"",false, false, true);
 
         user1 = mongoTemplate.save(user1);
         user2 = mongoTemplate.save(user2);

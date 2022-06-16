@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T17:27:09.907521600Z</date>
+  <millis>1655400429907</millis>
+  <nanos>521600</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>33</thread>
+  <message>User: dislinktx@gmail.com logging in.</message>
+</record>
+<record>
+  <date>2022-06-16T17:28:24.160817500Z</date>
+  <millis>1655400504160</millis>
+  <nanos>817500</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>32</thread>
+  <message>User: admin@gmail.com logging in.</message>
+</record>
+<record>
+  <date>2022-06-16T17:29:16.227888800Z</date>
+  <millis>1655400556227</millis>
+  <nanos>888800</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx@gmail.com logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T18:10:46.461635200Z</date>
+  <millis>1655403046461</millis>
+  <nanos>635200</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>Registration not successfull.</message>
+</record>
+<record>
+  <date>2022-06-16T18:10:57.659974800Z</date>
+  <millis>1655403057659</millis>
+  <nanos>974800</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User kukuckarastislav tryed to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T18:11:02.946350400Z</date>
+  <millis>1655403062946</millis>
+  <nanos>350400</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>User: kukuckarastislav@gmail.com logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T19:04:44.760567700Z</date>
+  <millis>1655406284760</millis>
+  <nanos>567700</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx@gmail.com logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T19:06:43.883571500Z</date>
+  <millis>1655406403883</millis>
+  <nanos>571500</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx@gmail.com logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T19:59:00.624085100Z</date>
+  <millis>1655409540624</millis>
+  <nanos>85100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T19:59:17.241312Z</date>
+  <millis>1655409557241</millis>
+  <nanos>312000</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>28</thread>
+  <message>User: dislinktx@gmail.com Successfully logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:04:11.845103700Z</date>
+  <millis>1655409851845</millis>
+  <nanos>103700</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:04:59.433649100Z</date>
+  <millis>1655409899433</millis>
+  <nanos>649100</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>28</thread>
+  <message>User: admin@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:07.459108800Z</date>
+  <millis>1655409907459</millis>
+  <nanos>108800</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:08.562679100Z</date>
+  <millis>1655409908562</millis>
+  <nanos>679100</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:09.633690800Z</date>
+  <millis>1655409909633</millis>
+  <nanos>690800</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>26</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:10.985025800Z</date>
+  <millis>1655409910985</millis>
+  <nanos>25800</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:11.896140Z</date>
+  <millis>1655409911896</millis>
+  <nanos>140000</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>30</thread>
+  <message>User dislinktx@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:17.418979700Z</date>
+  <millis>1655409917418</millis>
+  <nanos>979700</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:18.568251100Z</date>
+  <millis>1655409918568</millis>
+  <nanos>251100</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>26</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:21.205201100Z</date>
+  <millis>1655409921205</millis>
+  <nanos>201100</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:22.423690500Z</date>
+  <millis>1655409922423</millis>
+  <nanos>690500</nanos>
+  <sequence>14</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:23.410253800Z</date>
+  <millis>1655409923410</millis>
+  <nanos>253800</nanos>
+  <sequence>15</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:24.581656800Z</date>
+  <millis>1655409924581</millis>
+  <nanos>656800</nanos>
+  <sequence>16</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:05:25.649462700Z</date>
+  <millis>1655409925649</millis>
+  <nanos>462700</nanos>
+  <sequence>17</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:08:26.783850100Z</date>
+  <millis>1655410106783</millis>
+  <nanos>850100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:18.085196200Z</date>
+  <millis>1655410158085</millis>
+  <nanos>196200</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:28.038333500Z</date>
+  <millis>1655410168038</millis>
+  <nanos>333500</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>25</thread>
+  <message>User: admin@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:44.167565100Z</date>
+  <millis>1655410184167</millis>
+  <nanos>565100</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:49.111572400Z</date>
+  <millis>1655410189111</millis>
+  <nanos>572400</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:54.573540900Z</date>
+  <millis>1655410194573</millis>
+  <nanos>540900</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:09:58.940248500Z</date>
+  <millis>1655410198940</millis>
+  <nanos>248500</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:10:00.136019500Z</date>
+  <millis>1655410200136</millis>
+  <nanos>19500</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:10:01.153340400Z</date>
+  <millis>1655410201153</millis>
+  <nanos>340400</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:10:07.378816500Z</date>
+  <millis>1655410207378</millis>
+  <nanos>816500</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:10:11.823205400Z</date>
+  <millis>1655410211823</millis>
+  <nanos>205400</nanos>
+  <sequence>14</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:10:22.686261400Z</date>
+  <millis>1655410222686</millis>
+  <nanos>261400</nanos>
+  <sequence>15</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:17:38.531490600Z</date>
+  <millis>1655410658531</millis>
+  <nanos>490600</nanos>
+  <sequence>16</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:18:41.805313600Z</date>
+  <millis>1655410721805</millis>
+  <nanos>313600</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: admin@gmail.com Successfully logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:20:10.024380500Z</date>
+  <millis>1655410810024</millis>
+  <nanos>380500</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:21.033676600Z</date>
+  <millis>1655410821033</millis>
+  <nanos>676600</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:24.333616700Z</date>
+  <millis>1655410824333</millis>
+  <nanos>616700</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User admin@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:30.961087900Z</date>
+  <millis>1655410830961</millis>
+  <nanos>87900</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>26</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:33.395492900Z</date>
+  <millis>1655410833395</millis>
+  <nanos>492900</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:34.251243900Z</date>
+  <millis>1655410834251</millis>
+  <nanos>243900</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:35.967582300Z</date>
+  <millis>1655410835967</millis>
+  <nanos>582300</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:36.994672300Z</date>
+  <millis>1655410836994</millis>
+  <nanos>672300</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:37.964573100Z</date>
+  <millis>1655410837964</millis>
+  <nanos>573100</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T20:20:49.481260600Z</date>
+  <millis>1655410849481</millis>
+  <nanos>260600</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User admin@gmail.com tried to login, rejected, cool down</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:46:48.282850300Z</date>
+  <millis>1655412408282</millis>
+  <nanos>850300</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User isaprojectftn@gmail.com successfully registered.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T20:52:50.298639400Z</date>
+  <millis>1655412770298</millis>
+  <nanos>639400</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User isaprojectftn@gmail.com successfully registered.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:09:40.426011600Z</date>
+  <millis>1655413780426</millis>
+  <nanos>11600</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>28</thread>
+  <message>User isaprojectftn@gmail.com successfully registered.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:16:58.859201900Z</date>
+  <millis>1655414218859</millis>
+  <nanos>201900</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+rasti@gmail.com successfully registered.</message>
+</record>
+<record>
+  <date>2022-06-16T21:17:36.212240900Z</date>
+  <millis>1655414256212</millis>
+  <nanos>240900</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User dislinktx+rasti@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T21:18:10.422612500Z</date>
+  <millis>1655414290422</millis>
+  <nanos>612500</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>27</thread>
+  <message>User: dislinktx+rasti@gmail.com Successfully logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:23:53.257890800Z</date>
+  <millis>1655414633257</millis>
+  <nanos>890800</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+rasti@gmail.com successfully registered.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:35:31.855132100Z</date>
+  <millis>1655415331855</millis>
+  <nanos>132100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+branislav@gmail.com successfully registered.</message>
+</record>
+<record>
+  <date>2022-06-16T21:36:46.487635500Z</date>
+  <millis>1655415406487</millis>
+  <nanos>635500</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>User dislinktx+borislav@gmail.com successfully registered.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:43:41.620599100Z</date>
+  <millis>1655415821620</millis>
+  <nanos>599100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T21:45:04.704031200Z</date>
+  <millis>1655415904704</millis>
+  <nanos>31200</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T21:45:50.152162600Z</date>
+  <millis>1655415950152</millis>
+  <nanos>162600</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>25</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T21:45:59.187156700Z</date>
+  <millis>1655415959187</millis>
+  <nanos>156700</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T21:46:23.405481Z</date>
+  <millis>1655415983405</millis>
+  <nanos>481000</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-16T21:46:51.400022Z</date>
+  <millis>1655416011400</millis>
+  <nanos>22000</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>26</thread>
+  <message>User dislinktx+borislav@gmail.com successfully registered.</message>
+</record>
+<record>
+  <date>2022-06-16T21:47:18.337400400Z</date>
+  <millis>1655416038337</millis>
+  <nanos>400400</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User dislinktx+borislav@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T21:49:08.487563Z</date>
+  <millis>1655416148487</millis>
+  <nanos>563000</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User dislinktx+borislav@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T21:51:42.018119Z</date>
+  <millis>1655416302018</millis>
+  <nanos>119000</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+borislav@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T21:52:56.230478800Z</date>
+  <millis>1655416376230</millis>
+  <nanos>478800</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>26</thread>
+  <message>User dislinktx+borislav@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-16T21:52:58.222868800Z</date>
+  <millis>1655416378222</millis>
+  <nanos>868800</nanos>
+  <sequence>14</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+borislav@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T21:53:01.798576Z</date>
+  <millis>1655416381798</millis>
+  <nanos>576000</nanos>
+  <sequence>15</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User dislinktx+borislav@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-16T21:58:10.774666700Z</date>
+  <millis>1655416690774</millis>
+  <nanos>666700</nanos>
+  <sequence>16</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx+borislav@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-16T21:58:31.009143400Z</date>
+  <millis>1655416711009</millis>
+  <nanos>143400</nanos>
+  <sequence>17</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T21:59:14.908857400Z</date>
+  <millis>1655416754908</millis>
+  <nanos>857400</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:00:28.483651900Z</date>
+  <millis>1655416828483</millis>
+  <nanos>651900</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:00:49.839211100Z</date>
+  <millis>1655416849839</millis>
+  <nanos>211100</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:00:56.895921100Z</date>
+  <millis>1655416856895</millis>
+  <nanos>921100</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T22:25:07.306181100Z</date>
+  <millis>1655418307306</millis>
+  <nanos>181100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:25:10.929901100Z</date>
+  <millis>1655418310929</millis>
+  <nanos>901100</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>32</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T22:26:51.095789100Z</date>
+  <millis>1655418411095</millis>
+  <nanos>789100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:27:09.294690100Z</date>
+  <millis>1655418429294</millis>
+  <nanos>690100</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T22:28:33.176864900Z</date>
+  <millis>1655418513176</millis>
+  <nanos>864900</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:32:01.031996500Z</date>
+  <millis>1655418721031</millis>
+  <nanos>996500</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>25</thread>
+  <message>User: dislinktx+india@gmail.com Successfully logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T22:32:42.655342700Z</date>
+  <millis>1655418762655</millis>
+  <nanos>342700</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:32:55.714193400Z</date>
+  <millis>1655418775714</millis>
+  <nanos>193400</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>26</thread>
+  <message>Successfully generated new verification code for user dislinktx+india@gmail.com</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-16T22:35:48.086613400Z</date>
+  <millis>1655418948086</millis>
+  <nanos>613400</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+india@gmail.com tried to login, rejected, acc is not verified</message>
+</record>
+<record>
+  <date>2022-06-16T22:36:01.121385900Z</date>
+  <millis>1655418961121</millis>
+  <nanos>385900</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>32</thread>
+  <message>Successfully generated new verification code for user dislinktx+india@gmail.com</message>
+</record>

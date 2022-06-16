@@ -11,7 +11,7 @@ public class SendPasswordlessTokenContext extends AbstractEmailContext {
         put("firstName", user.getName());
         setTemplateLocation("emails/magic-link");
         setSubject("Magic Link Login!");
-        setFrom("isaprojectftn@outlook.com");
+        setFrom("dislinkt@outlook.com");
         setTo(user.getEmail());
     }
 
