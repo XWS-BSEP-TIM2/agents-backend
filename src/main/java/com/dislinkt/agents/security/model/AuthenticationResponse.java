@@ -12,7 +12,7 @@ public class AuthenticationResponse {
     private String fullName;
     private String email;
     private String id;
-    private ApplicationUserRole role;
+    private String role;
     private boolean twoFactor;
 
 }

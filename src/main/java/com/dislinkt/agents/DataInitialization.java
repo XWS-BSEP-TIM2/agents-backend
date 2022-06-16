@@ -9,7 +9,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Component
 public class DataInitialization {
@@ -32,15 +36,57 @@ public class DataInitialization {
 
         // USERS
         String simplePassword = "$2a$12$eWlLSJGnjzzaAUOevPWpBetvfgbQOZliAEe4iQM1kSPNGby3V8Dhu";
+        Permission permission1=new Permission(82272036854775810L,"POST_NEW_OFFER");
+        Permission permission2=new Permission(82272036854775811L,"UPDATE_OFFER");
+        Permission permission3=new Permission(82272036854775812L,"POST_OFFER_COMMENT");
+        Permission permission4=new Permission(82272036854775813L,"DELETE_OFFER");
+        Permission permission5=new Permission(82272036854775814L,"SEND_COMPANY_OWNER_REQUEST");
+        Permission permission6=new Permission(82272036854775815L,"PROCESS_COMPANY_OWNER_REQUESTS");
+        Permission permission7=new Permission(82272036854775816L,"UPDATE_API_TOKEN");
 
-        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "djordje1499@gmail.com", simplePassword, "", ApplicationUserRole.USER,"CUW732US7Y7CPRB3",true);
-        ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "alvin@gmail.com", simplePassword, "", ApplicationUserRole.USER,"",false);
-        ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER,"",false);
-        ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER,"",false);
-        ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "saskia@gmail.com", simplePassword, "", ApplicationUserRole.COMPANY_OWNER,"",false);
-        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, "adadqbek123krmtgk123e1rff", ApplicationUserRole.COMPANY_OWNER,"",false);
-        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, "adadqbek123krmtgk123e1rfd", ApplicationUserRole.COMPANY_OWNER,"",false);
-        ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "admin@gmail.com", simplePassword, "", ApplicationUserRole.ADMIN,"",false);
+        mongoTemplate.save(permission1);
+        mongoTemplate.save(permission2);
+        mongoTemplate.save(permission3);
+        mongoTemplate.save(permission4);
+        mongoTemplate.save(permission5);
+        mongoTemplate.save(permission6);
+        mongoTemplate.save(permission7);
+
+        Set<Permission> adminPermissions= new HashSet<>();
+        Set<Permission> userPermissions= new HashSet<>();
+        Set<Permission> companyOwnerPermissions= new HashSet<>();
+        companyOwnerPermissions.add(permission1);
+        companyOwnerPermissions.add(permission2);
+        companyOwnerPermissions.add(permission4);
+        companyOwnerPermissions.add(permission7);
+        userPermissions.add(permission3);
+        userPermissions.add(permission5);
+        adminPermissions.add(permission6);
+
+
+        Role role1= new Role(92272036854775807L,"ADMIN",adminPermissions);
+        Role role2= new Role(92272036854775808L,"USER",userPermissions);
+        Role role3= new Role(92272036854775809L,"COMPANY_OWNER", companyOwnerPermissions);
+
+        mongoTemplate.save(role1);
+        mongoTemplate.save(role2);
+        mongoTemplate.save(role3);
+
+        List<Role> adminRoles=new ArrayList<>();
+        List<Role> userRoles=new ArrayList<>();
+        List<Role> companyOwnerRoles=new ArrayList<>();
+        adminRoles.add(role1);
+        userRoles.add(role2);
+        companyOwnerRoles.add(role3);
+
+        ApplicationUser user1 = new ApplicationUser("62933e04552855741fcb6752", "Jack", "Smith", "djordje1499@gmail.com", simplePassword, "", userRoles,"CUW732US7Y7CPRB3",true);
+        ApplicationUser user2 = new ApplicationUser("62933e04552855741fcb6753", "Alvin", "Ellison", "alvin@gmail.com", simplePassword, "", userRoles,"",false);
+        ApplicationUser user3 = new ApplicationUser("62933e04552855741fcb6754", "Eadie", "Martins", "eadie@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
+        ApplicationUser user4 = new ApplicationUser("62933e04552855741fcb6755", "India", "Olsen", "india@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
+        ApplicationUser user5 = new ApplicationUser("62933e04552855741fcb6756", "Saskia", "Rees", "saskia@gmail.com", simplePassword, "", companyOwnerRoles,"",false);
+        ApplicationUser user6 = new ApplicationUser("62933e04552855741fcb6757", "Emmett", "Lutz", "emmet@gmail.com", simplePassword, "adadqbek123krmtgk123e1rff", companyOwnerRoles,"",false);
+        ApplicationUser user7 = new ApplicationUser("62933e04552855741fcb6758", "Maddie", "Gray", "maddie@gmail.com", simplePassword, "adadqbek123krmtgk123e1rfd", companyOwnerRoles,"",false);
+        ApplicationUser user8 = new ApplicationUser("62933e04552855741fcb6759", "Tara", "Pogancev", "admin@gmail.com", simplePassword, "", adminRoles,"",false);
 
         user1 = mongoTemplate.save(user1);
         user2 = mongoTemplate.save(user2);
