@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  dislinkt_agents_backend:
+    image: agents_backend
+    container_name: agents_backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      dislinkt_agents_mongo_db: dislinkt_agents_mongo_db
+    depends_on:
+      - dislinkt_agents_mongo_db
+    networks:
+      - network
+
+  dislinkt_agents_mongo_db:
+    image: mongo
+    container_name: dislinkt_agents_mongo_db
+    restart: on-failure
+    command: mongod --quiet --logpath /dev/null
+    networks:
+      - network
+    logging:
+      driver: none
+
+networks:
+  network:
+    driver: bridge
