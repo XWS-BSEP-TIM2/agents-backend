@@ -19,32 +19,32 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/company-owner-request")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAuthority('SEND_COMPANY_OWNER_REQUEST')")
     public boolean sendCompanyOwnerRequest(@RequestBody CompanyDTO company) {
         return this.userService.sendCompanyOwnerRequest(company);
     }
 
     @PostMapping("/company-owner-request/accept")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('PROCESS_COMPANY_OWNER_REQUESTS')")
     public boolean acceptCompanyOwnerRequest(@RequestBody CompanyDTO company) {
         return this.userService.acceptCompanyOwnerRequest(company);
     }
 
     @PutMapping("/company-owner-request/reject")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('PROCESS_COMPANY_OWNER_REQUESTS')")
     public boolean rejectCompanyOwnerRequest(@RequestBody CompanyDTO company) {
         return this.userService.rejectCompanyOwnerRequest(company);
     }
 
     @GetMapping("/company-owner-requests")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('PROCESS_COMPANY_OWNER_REQUESTS')")
     public List<CompanyOwnerRequestDTO> getCompanyOwnerRequests() {
         return this.userService.getCompanyOwnerRequests();
     }
 
     @PutMapping("/apiToken")
-    @PreAuthorize("hasRole('COMPANY_OWNER')")
-    public boolean getCompanyOwnerRequests(@RequestBody UserDTO user) {
+    @PreAuthorize("hasAuthority('UPDATE_API_TOKEN')")
+    public boolean updateApiToken(@RequestBody UserDTO user) {
         return this.userService.updateApiToken(user);
     }
 

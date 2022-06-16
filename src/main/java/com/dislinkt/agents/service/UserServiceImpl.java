@@ -4,20 +4,19 @@ package com.dislinkt.agents.service;
 import com.dislinkt.agents.dto.CompanyDTO;
 import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
 import com.dislinkt.agents.dto.UserDTO;
-import com.dislinkt.agents.model.ApplicationUser;
-import com.dislinkt.agents.model.Company;
-import com.dislinkt.agents.model.CompanyOwnerRequest;
-import com.dislinkt.agents.model.Post;
+import com.dislinkt.agents.model.*;
 import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import com.dislinkt.agents.model.enums.PostType;
 import com.dislinkt.agents.service.interfaces.CompanyService;
 import com.dislinkt.agents.service.interfaces.ConverterService;
+import com.dislinkt.agents.service.interfaces.RoleService;
 import com.dislinkt.agents.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.management.AttributeList;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -35,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ConverterService converterService;
+
+    @Autowired
+    private RoleService roleService;
 
     public static String QR_PREFIX = "https://chart.googleapis.com/chart?chs=200x200&chld=M%%7C0&cht=qr&chl=";
 
@@ -63,8 +65,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
+            List<Role> roleList= new ArrayList<>();
+            Role userRole=roleService.findRoleByID(92272036854775808L);
+            roleList.add(userRole);
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, newUser.role,"",false);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, roleList,"",false);
             user = mongoTemplate.save(user);
 
             Post post = new Post();
@@ -113,7 +118,10 @@ public class UserServiceImpl implements UserService {
                 newCompany = mongoTemplate.save(newCompany);
 
                 ApplicationUser companyOwner = mongoTemplate.findById(newCompany.getUserId(), ApplicationUser.class);
-                companyOwner.setRole(ApplicationUserRole.COMPANY_OWNER);
+                Role companyOwnerRole = roleService.findRoleByID(92272036854775809L);
+                List<Role> newRoles = new ArrayList<>();
+                newRoles.add(companyOwnerRole);
+                companyOwner.setRoles(newRoles);
                 companyOwner = mongoTemplate.save(companyOwner);
 
                 Post post = new Post();

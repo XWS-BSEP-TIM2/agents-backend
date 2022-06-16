@@ -19,27 +19,27 @@ public class JobOfferController {
     private final LoggingService loggingService;
 
     @PostMapping
-    @PreAuthorize("hasRole('COMPANY_OWNER')")
+    @PreAuthorize("hasAuthority('POST_NEW_OFFER')")
     public JobOffer postNewOffer(@RequestBody JobOfferDTO jobOffer) {
         return jobOfferService.postNewOffer(jobOffer);
     }
 
     @PostMapping("/comment")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAuthority('POST_OFFER_COMMENT')")
     public JobOfferComment postNewOfferComment(@RequestBody JobOfferCommentDTO comment) {
         loggingService.MakeInfoLog("User "+ comment.user.getEmail() + " made a comment.");
         return jobOfferService.postNewComment(comment);
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('COMPANY_OWNER')")
+    @PreAuthorize("hasAuthority('UPDATE_OFFER')")
     public JobOffer updateOffer(@RequestBody JobOfferDTO jobOffer) {
         loggingService.MakeInfoLog("Owner of "+ jobOffer.getCompany().getName() + " company made a offer.");
         return jobOfferService.updateOffer(jobOffer);
     }
 
     @PutMapping("/delete")
-    @PreAuthorize("hasRole('COMPANY_OWNER')")
+    @PreAuthorize("hasAuthority('DELETE_OFFER')")
     public boolean deleteOffer(@RequestBody JobOfferDTO jobOffer) {
         loggingService.MakeInfoLog("Owner of "+ jobOffer.getCompany().getName() + " company deleted a offer.");
         return jobOfferService.deleteOffer(jobOffer);
