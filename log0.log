@@ -1534,3 +1534,367 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T11:36:39.961702400Z</date>
+  <millis>1655465799961</millis>
+  <nanos>702400</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx+tara@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T11:37:07.843697200Z</date>
+  <millis>1655465827843</millis>
+  <nanos>697200</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>33</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T12:11:28.465215400Z</date>
+  <millis>1655467888465</millis>
+  <nanos>215400</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T12:13:04.381794Z</date>
+  <millis>1655467984381</millis>
+  <nanos>794000</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>35</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+<record>
+  <date>2022-06-17T12:15:30.567576200Z</date>
+  <millis>1655468130567</millis>
+  <nanos>576200</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+<record>
+  <date>2022-06-17T12:16:49.206735500Z</date>
+  <millis>1655468209206</millis>
+  <nanos>735500</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>30</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:16:56.774024400Z</date>
+  <millis>1655468216774</millis>
+  <nanos>24400</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>36</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:17:03.925905Z</date>
+  <millis>1655468223925</millis>
+  <nanos>905000</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>35</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T12:17:50.468044600Z</date>
+  <millis>1655468270468</millis>
+  <nanos>44600</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:19:07.422803700Z</date>
+  <millis>1655468347422</millis>
+  <nanos>803700</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>28</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T12:19:24.377517800Z</date>
+  <millis>1655468364377</millis>
+  <nanos>517800</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>25</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+<record>
+  <date>2022-06-17T12:19:38.535514600Z</date>
+  <millis>1655468378535</millis>
+  <nanos>514600</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>30</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:19:41.960691400Z</date>
+  <millis>1655468381960</millis>
+  <nanos>691400</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:19:49.018470400Z</date>
+  <millis>1655468389018</millis>
+  <nanos>470400</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>29</thread>
+  <message>Tried to log in with not existing email.</message>
+</record>
+<record>
+  <date>2022-06-17T12:20:04.783082200Z</date>
+  <millis>1655468404783</millis>
+  <nanos>82200</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>30</thread>
+  <message>User dislinktx+saskia@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T12:20:09.183746800Z</date>
+  <millis>1655468409183</millis>
+  <nanos>746800</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+saskia@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T12:20:15.626682600Z</date>
+  <millis>1655468415626</millis>
+  <nanos>682600</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T12:23:10.362276800Z</date>
+  <millis>1655468590362</millis>
+  <nanos>276800</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T12:23:31.523344200Z</date>
+  <millis>1655468611523</millis>
+  <nanos>344200</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+<record>
+  <date>2022-06-17T12:23:46.406689Z</date>
+  <millis>1655468626406</millis>
+  <nanos>689000</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+saskia@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T12:23:48.012061500Z</date>
+  <millis>1655468628012</millis>
+  <nanos>61500</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>25</thread>
+  <message>User dislinktx+saskia@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T12:23:49.872270Z</date>
+  <millis>1655468629872</millis>
+  <nanos>270000</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+saskia@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T12:23:52.992149700Z</date>
+  <millis>1655468632992</millis>
+  <nanos>149700</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User dislinktx+saskia@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-17T12:24:20.037986400Z</date>
+  <millis>1655468660037</millis>
+  <nanos>986400</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>Successfully generated recovery code for user dislinktx+saskia@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T12:24:47.582201300Z</date>
+  <millis>1655468687582</millis>
+  <nanos>201300</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>Successfully recovered user dislinktx+saskia@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T12:24:47.680200400Z</date>
+  <millis>1655468687680</millis>
+  <nanos>200400</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T12:24:58.493966600Z</date>
+  <millis>1655468698493</millis>
+  <nanos>966600</nanos>
+  <sequence>14</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T12:25:22.697941300Z</date>
+  <millis>1655468722697</millis>
+  <nanos>941300</nanos>
+  <sequence>15</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>Successfully changed user dislinktx+saskia@gmail.com password</message>
+</record>
+<record>
+  <date>2022-06-17T12:25:31.750626900Z</date>
+  <millis>1655468731750</millis>
+  <nanos>626900</nanos>
+  <sequence>16</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>25</thread>
+  <message>User: dislinktx+saskia@gmail.com Successfully logging in.</message>
+</record>
+</log>

@@ -1,10 +1,7 @@
 package com.dislinkt.agents.service;
 
 
-import com.dislinkt.agents.dto.CompanyDTO;
-import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
-import com.dislinkt.agents.dto.RecoveryPasswordDTO;
-import com.dislinkt.agents.dto.UserDTO;
+import com.dislinkt.agents.dto.*;
 import com.dislinkt.agents.email.service.EmailService;
 import com.dislinkt.agents.email.service.EmailServiceImpl;
 import com.dislinkt.agents.model.*;
@@ -261,6 +258,18 @@ public class UserServiceImpl implements UserService {
                 save(user);
             }
         }
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser changePassword(ChangePasswordDTO changePasswordDTO) {
+        if(!changePasswordDTO.passwordMatch()) return null;
+        ApplicationUser user = findByEmail(changePasswordDTO.getEmail());
+        if(user == null) return null;
+
+        user.setPassword(new BCryptPasswordEncoder().encode(changePasswordDTO.getNewPassword()));
+        save(user);
 
         return user;
     }

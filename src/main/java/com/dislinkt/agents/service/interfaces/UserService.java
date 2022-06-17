@@ -1,9 +1,6 @@
 package com.dislinkt.agents.service.interfaces;
 
-import com.dislinkt.agents.dto.CompanyDTO;
-import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
-import com.dislinkt.agents.dto.RecoveryPasswordDTO;
-import com.dislinkt.agents.dto.UserDTO;
+import com.dislinkt.agents.dto.*;
 import com.dislinkt.agents.model.ApplicationUser;
 
 import java.util.List;
@@ -43,4 +40,6 @@ public interface UserService {
     ApplicationUser recoveryPassword(String email);
 
     ApplicationUser recoverPassword(RecoveryPasswordDTO recoveryPasswordDTO);
+
+    ApplicationUser changePassword(ChangePasswordDTO changePasswordDTO);
 }

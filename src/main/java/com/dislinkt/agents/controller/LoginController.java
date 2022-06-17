@@ -1,5 +1,6 @@
 package com.dislinkt.agents.controller;
 
+import com.dislinkt.agents.dto.ChangePasswordDTO;
 import com.dislinkt.agents.dto.QrCodeDto;
 import com.dislinkt.agents.dto.RecoveryPasswordDTO;
 import com.dislinkt.agents.dto.VerifyQrCodeDto;
@@ -182,7 +183,19 @@ public class LoginController {
             loggingService.MakeWarningLog("Error recovering password");
             return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
         }
-
     }
+
+    @PostMapping("change-password")
+    public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDTO changePasswordDTO){
+        ApplicationUser user = userService.changePassword(changePasswordDTO);
+        if(user != null){
+            loggingService.MakeInfoLog("Successfully changed user " + user.getEmail()+ " password");
+            return new ResponseEntity<>("Successfully changed password",HttpStatus.OK);
+        }else{
+            loggingService.MakeWarningLog("Error change password");
+            return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 }
