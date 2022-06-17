@@ -1530,3 +1530,7 @@
   <message>User dislinktx+tara@gmail.com tried to login, rejected, cool down</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
