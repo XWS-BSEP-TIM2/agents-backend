@@ -256,8 +256,8 @@ public class UserServiceImpl implements UserService {
         if(user.isRecoveryCodeNotExpired()){
             if(user.getRecoveryPasswordCode().equals(recoveryPasswordDTO.getRecoveryCode())){
                 user.setPassword(new BCryptPasswordEncoder().encode(recoveryPasswordDTO.getNewPassword()));
-                if(user.isLocked())
-                    user.setLocked(false);
+                user.resetNumOfErrTryLogin();
+                user.setLocked(false);
                 save(user);
             }
         }
