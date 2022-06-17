@@ -140,4 +140,14 @@ public class ApplicationUser implements UserDetails {
     public boolean isVerificationCodeNotExpired() {
         return this.verificationCodeTime.isAfter(LocalDateTime.now().minusMinutes(10));
     }
+
+    public void setNewRecoveryCode(String recoveryCode) {
+        this.recoveryPasswordCode = recoveryCode;
+        this.recoveryPasswordCodeTime = LocalDateTime.now();
+    }
+
+    public boolean isRecoveryCodeNotExpired() {
+        return this.recoveryPasswordCodeTime.isAfter(LocalDateTime.now().minusMinutes(5));
+    }
+
 }

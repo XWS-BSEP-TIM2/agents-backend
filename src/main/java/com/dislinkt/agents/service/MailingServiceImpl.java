@@ -1,6 +1,7 @@
 package com.dislinkt.agents.service;
 
 import com.dislinkt.agents.email.context.SendPasswordlessTokenContext;
+import com.dislinkt.agents.email.context.SendRecoveryCodeContext;
 import com.dislinkt.agents.email.context.SendVerificationCodeContext;
 import com.dislinkt.agents.email.service.EmailService;
 import com.dislinkt.agents.model.ApplicationUser;
@@ -65,6 +66,15 @@ public class MailingServiceImpl implements MailingService {
         if(user == null) return false;
         SendVerificationCodeContext context = new SendVerificationCodeContext();
         context.setRedirectUrl(AGENTS_BACK_URL + "/login/verify-acc/"+user.getId()+"/"+user.getVerificationCode());
+        context.init(user);
+        emailService.sendMail(context);
+        return true;
+    }
+
+    @Override
+    public boolean sendRecoveryCodeMail(ApplicationUser user) {
+        if(user == null) return false;
+        SendRecoveryCodeContext context = new SendRecoveryCodeContext();
         context.init(user);
         emailService.sendMail(context);
         return true;

@@ -3,12 +3,14 @@ package com.dislinkt.agents.service;
 
 import com.dislinkt.agents.dto.CompanyDTO;
 import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
+import com.dislinkt.agents.dto.RecoveryPasswordDTO;
 import com.dislinkt.agents.dto.UserDTO;
 import com.dislinkt.agents.email.service.EmailService;
 import com.dislinkt.agents.email.service.EmailServiceImpl;
 import com.dislinkt.agents.model.*;
 import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import com.dislinkt.agents.model.enums.PostType;
+import com.dislinkt.agents.security.RandomCodeUtil;
 import com.dislinkt.agents.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -72,7 +74,7 @@ public class UserServiceImpl implements UserService {
             ApplicationUser user = new ApplicationUser(null, newUser.name,
                     newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, roleList,"",false, false, false);
 
-            String verificationCode = "RandomCode123456";
+            String verificationCode = RandomCodeUtil.getCode(32);
             user.setNewVerificationCode(verificationCode);
             user = mongoTemplate.save(user);
 
@@ -226,12 +228,40 @@ public class UserServiceImpl implements UserService {
     public ApplicationUser resendVerificationCode(String email) {
         ApplicationUser user = findByEmail(email);
         if(user == null) return null;
-
-        String newVerificationCode = "newVerificationCode";
+        String newVerificationCode = RandomCodeUtil.getCode(32);
         user.setNewVerificationCode(newVerificationCode);
         save(user);
 
         return user;
     }
 
+    @Override
+    public ApplicationUser recoveryPassword(String email) {
+        ApplicationUser user = findByEmail(email);
+        if(user == null) return null;
+        if(!user.isVerified()) return null;
+        String recoveryCode = RandomCodeUtil.getCode(8);
+        user.setNewRecoveryCode(recoveryCode);
+        save(user);
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser recoverPassword(RecoveryPasswordDTO recoveryPasswordDTO) {
+        if(!recoveryPasswordDTO.passwordMatch()) return null;
+        ApplicationUser user = findByEmail(recoveryPasswordDTO.getEmail());
+        if(user == null) return null;
+
+        if(user.isRecoveryCodeNotExpired()){
+            if(user.getRecoveryPasswordCode().equals(recoveryPasswordDTO.getRecoveryCode())){
+                user.setPassword(new BCryptPasswordEncoder().encode(recoveryPasswordDTO.getNewPassword()));
+                if(user.isLocked())
+                    user.setLocked(false);
+                save(user);
+            }
+        }
+
+        return user;
+    }
 }

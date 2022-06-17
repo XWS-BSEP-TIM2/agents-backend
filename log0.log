@@ -1121,3 +1121,312 @@
   <thread>32</thread>
   <message>Successfully generated new verification code for user dislinktx+india@gmail.com</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T00:09:22.555368200Z</date>
+  <millis>1655424562555</millis>
+  <nanos>368200</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>User: dislinktx+tara@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:31.101328300Z</date>
+  <millis>1655424571101</millis>
+  <nanos>328300</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>28</thread>
+  <message>User dislinktx+tara@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:34.848611800Z</date>
+  <millis>1655424574848</millis>
+  <nanos>611800</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>27</thread>
+  <message>User dislinktx+tara@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:38.438203200Z</date>
+  <millis>1655424578438</millis>
+  <nanos>203200</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>30</thread>
+  <message>User dislinktx+tara@gmail.com tried to log in with bad credentials.</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:39.278403300Z</date>
+  <millis>1655424579278</millis>
+  <nanos>403300</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>31</thread>
+  <message>User dislinktx+tara@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:43.530311400Z</date>
+  <millis>1655424583530</millis>
+  <nanos>311400</nanos>
+  <sequence>9</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>33</thread>
+  <message>User dislinktx+tara@gmail.com tried to login, rejected, cool down</message>
+</record>
+<record>
+  <date>2022-06-17T00:09:59.516543Z</date>
+  <millis>1655424599516</millis>
+  <nanos>543000</nanos>
+  <sequence>10</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>34</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:13:28.302205700Z</date>
+  <millis>1655424808302</millis>
+  <nanos>205700</nanos>
+  <sequence>11</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>31</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:16:29.848186600Z</date>
+  <millis>1655424989848</millis>
+  <nanos>186600</nanos>
+  <sequence>12</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>33</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:18:04.318749600Z</date>
+  <millis>1655425084318</millis>
+  <nanos>749600</nanos>
+  <sequence>13</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>27</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:18:56.531368300Z</date>
+  <millis>1655425136531</millis>
+  <nanos>368300</nanos>
+  <sequence>14</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>29</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:19:46.327203900Z</date>
+  <millis>1655425186327</millis>
+  <nanos>203900</nanos>
+  <sequence>15</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>26</thread>
+  <message>Successfully recovered user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:19:46.651230700Z</date>
+  <millis>1655425186651</millis>
+  <nanos>230700</nanos>
+  <sequence>16</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>26</thread>
+  <message>User dislinktx+tara@gmail.com tried to log in with bad credentials.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T00:25:02.263024800Z</date>
+  <millis>1655425502263</millis>
+  <nanos>24800</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>32</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:29:07.194388300Z</date>
+  <millis>1655425747194</millis>
+  <nanos>388300</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>Successfully recovered user dislinktx+tara@gmail.com</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T00:29:59.172809700Z</date>
+  <millis>1655425799172</millis>
+  <nanos>809700</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>28</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:35:12.197951400Z</date>
+  <millis>1655426112197</millis>
+  <nanos>951400</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>34</thread>
+  <message>Successfully recovered user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:35:12.687953600Z</date>
+  <millis>1655426112687</millis>
+  <nanos>953600</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>User dislinktx+tara@gmail.com tried to log in with bad credentials.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-17T00:36:37.984459100Z</date>
+  <millis>1655426197984</millis>
+  <nanos>459100</nanos>
+  <sequence>4</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>30</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:37:10.382228400Z</date>
+  <millis>1655426230382</millis>
+  <nanos>228400</nanos>
+  <sequence>5</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>32</thread>
+  <message>Successfully recovered user dislinktx+tara@gmail.com</message>
+</record>
+<record>
+  <date>2022-06-17T00:37:10.618221900Z</date>
+  <millis>1655426230618</millis>
+  <nanos>221900</nanos>
+  <sequence>6</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>32</thread>
+  <message>User: dislinktx+tara@gmail.com Successfully logging in.</message>
+</record>
+<record>
+  <date>2022-06-17T00:38:31.522298800Z</date>
+  <millis>1655426311522</millis>
+  <nanos>298800</nanos>
+  <sequence>7</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>WARNING</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeWarningLog</method>
+  <thread>34</thread>
+  <message>Error generating recovery code</message>
+</record>
+<record>
+  <date>2022-06-17T00:39:02.760313300Z</date>
+  <millis>1655426342760</millis>
+  <nanos>313300</nanos>
+  <sequence>8</sequence>
+  <logger>com.dislinkt.agents.service.LoggingService</logger>
+  <level>INFO</level>
+  <class>com.dislinkt.agents.service.LoggingService</class>
+  <method>MakeInfoLog</method>
+  <thread>33</thread>
+  <message>Successfully generated recovery code for user dislinktx+tara@gmail.com</message>
+</record>
+</log>

@@ -7,4 +7,6 @@ public interface MailingService {
     boolean sendMagicTokenMail(String userMail);
 
     boolean sendVerificationCodeMail(ApplicationUser user);
+
+    boolean sendRecoveryCodeMail(ApplicationUser user);
 }

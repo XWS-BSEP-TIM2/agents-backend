@@ -1,6 +1,7 @@
 package com.dislinkt.agents.controller;
 
 import com.dislinkt.agents.dto.QrCodeDto;
+import com.dislinkt.agents.dto.RecoveryPasswordDTO;
 import com.dislinkt.agents.dto.VerifyQrCodeDto;
 import com.dislinkt.agents.model.ApplicationUser;
 import com.dislinkt.agents.model.PasswordlessToken;
@@ -157,6 +158,31 @@ public class LoginController {
         }
     }
 
+    @GetMapping("recovery-password/{email}")
+    public ResponseEntity<?> recoveryPassword(@PathVariable("email") String email){
+        ApplicationUser user = userService.recoveryPassword(email);
+        if(user != null){
+            emailService.sendRecoveryCodeMail(user);
+            loggingService.MakeInfoLog("Successfully generated recovery code for user " + user.getEmail());
+            return new ResponseEntity<>("Successfully generated recovery code",HttpStatus.OK);
+        }else{
+            loggingService.MakeWarningLog("Error generating recovery code");
+            return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
+        }
+    }
 
+    @PostMapping("recovery-password")
+    public ResponseEntity<?> recoverPassword(@RequestBody RecoveryPasswordDTO recoveryPasswordDTO) throws Exception {
+        ApplicationUser user = userService.recoverPassword(recoveryPasswordDTO);
+        if(user != null){
+            loggingService.MakeInfoLog("Successfully recovered user " + user.getEmail());
+            return createAuthenticationToken(new AuthenticationRequest(recoveryPasswordDTO.getEmail(),recoveryPasswordDTO.getNewPassword()));
+            //return new ResponseEntity<>("Successfully recovered",HttpStatus.OK);
+        }else{
+            loggingService.MakeWarningLog("Error recovering password");
+            return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
+        }
+
+    }
 
 }
