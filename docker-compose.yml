@@ -11,6 +11,10 @@ services:
       - '8080:8080'
     environment:
       dislinkt_agents_mongo_db: dislinkt_agents_mongo_db
+    volumes:
+      - type: bind
+        source: ./
+        target: /root/
     depends_on:
       - dislinkt_agents_mongo_db
     networks:
