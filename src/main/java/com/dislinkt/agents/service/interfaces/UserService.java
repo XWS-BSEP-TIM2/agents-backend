@@ -1,8 +1,6 @@
 package com.dislinkt.agents.service.interfaces;
 
-import com.dislinkt.agents.dto.CompanyDTO;
-import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
-import com.dislinkt.agents.dto.UserDTO;
+import com.dislinkt.agents.dto.*;
 import com.dislinkt.agents.model.ApplicationUser;
 
 import java.util.List;
@@ -33,4 +31,15 @@ public interface UserService {
 
     String generateQUrl(String userId);
 
+    void save(ApplicationUser user);
+
+    boolean verifyAcc(String userId, String verificationCode);
+
+    ApplicationUser resendVerificationCode(String email);
+
+    ApplicationUser recoveryPassword(String email);
+
+    ApplicationUser recoverPassword(RecoveryPasswordDTO recoveryPasswordDTO);
+
+    ApplicationUser changePassword(ChangePasswordDTO changePasswordDTO);
 }

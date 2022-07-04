@@ -1,23 +1,22 @@
 package com.dislinkt.agents.service;
 
 
-import com.dislinkt.agents.dto.CompanyDTO;
-import com.dislinkt.agents.dto.CompanyOwnerRequestDTO;
-import com.dislinkt.agents.dto.UserDTO;
-import com.dislinkt.agents.model.ApplicationUser;
-import com.dislinkt.agents.model.Company;
-import com.dislinkt.agents.model.CompanyOwnerRequest;
-import com.dislinkt.agents.model.Post;
+import com.dislinkt.agents.dto.*;
+import com.dislinkt.agents.email.service.EmailService;
+import com.dislinkt.agents.email.service.EmailServiceImpl;
+import com.dislinkt.agents.model.*;
 import com.dislinkt.agents.model.enums.ApplicationUserRole;
 import com.dislinkt.agents.model.enums.PostType;
-import com.dislinkt.agents.service.interfaces.CompanyService;
-import com.dislinkt.agents.service.interfaces.ConverterService;
-import com.dislinkt.agents.service.interfaces.UserService;
+import com.dislinkt.agents.security.RandomCodeUtil;
+import com.dislinkt.agents.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.management.AttributeList;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -35,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ConverterService converterService;
+
+    @Autowired
+    private RoleService roleService;
 
     public static String QR_PREFIX = "https://chart.googleapis.com/chart?chs=200x200&chld=M%%7C0&cht=qr&chl=";
 
@@ -63,8 +65,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public ApplicationUser registerNewUser(UserDTO newUser) {
         if (findByEmail(newUser.getEmail()) == null) {
+            List<Role> roleList= new ArrayList<>();
+            Role userRole=roleService.findRoleByID(92272036854775808L);
+            roleList.add(userRole);
             ApplicationUser user = new ApplicationUser(null, newUser.name,
-                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, newUser.role,"",false);
+                    newUser.surname, newUser.email.toLowerCase(Locale.ROOT), new BCryptPasswordEncoder().encode(newUser.password), newUser.apiToken, roleList,"",false, false, false);
+
+            String verificationCode = RandomCodeUtil.getCode(32);
+            user.setNewVerificationCode(verificationCode);
             user = mongoTemplate.save(user);
 
             Post post = new Post();
@@ -113,7 +121,10 @@ public class UserServiceImpl implements UserService {
                 newCompany = mongoTemplate.save(newCompany);
 
                 ApplicationUser companyOwner = mongoTemplate.findById(newCompany.getUserId(), ApplicationUser.class);
-                companyOwner.setRole(ApplicationUserRole.COMPANY_OWNER);
+                Role companyOwnerRole = roleService.findRoleByID(92272036854775809L);
+                List<Role> newRoles = new ArrayList<>();
+                newRoles.add(companyOwnerRole);
+                companyOwner.setRoles(newRoles);
                 companyOwner = mongoTemplate.save(companyOwner);
 
                 Post post = new Post();
@@ -190,4 +201,76 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public void save(ApplicationUser user) {
+        mongoTemplate.save(user);
+    }
+
+    @Override
+    public boolean verifyAcc(String userId, String verificationCode) {
+        ApplicationUser user = findById(userId);
+        if(user == null) return false;
+
+        if(user.isVerificationCodeNotExpired()){
+            if(user.getVerificationCode().equals(verificationCode)){
+                user.setVerified(true);
+                save(user);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public ApplicationUser resendVerificationCode(String email) {
+        ApplicationUser user = findByEmail(email);
+        if(user == null) return null;
+        String newVerificationCode = RandomCodeUtil.getCode(32);
+        user.setNewVerificationCode(newVerificationCode);
+        save(user);
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser recoveryPassword(String email) {
+        ApplicationUser user = findByEmail(email);
+        if(user == null) return null;
+        if(!user.isVerified()) return null;
+        String recoveryCode = RandomCodeUtil.getCode(8);
+        user.setNewRecoveryCode(recoveryCode);
+        save(user);
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser recoverPassword(RecoveryPasswordDTO recoveryPasswordDTO) {
+        if(!recoveryPasswordDTO.passwordMatch()) return null;
+        ApplicationUser user = findByEmail(recoveryPasswordDTO.getEmail());
+        if(user == null) return null;
+
+        if(user.isRecoveryCodeNotExpired()){
+            if(user.getRecoveryPasswordCode().equals(recoveryPasswordDTO.getRecoveryCode())){
+                user.setPassword(new BCryptPasswordEncoder().encode(recoveryPasswordDTO.getNewPassword()));
+                user.resetNumOfErrTryLogin();
+                user.setLocked(false);
+                save(user);
+            }
+        }
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser changePassword(ChangePasswordDTO changePasswordDTO) {
+        if(!changePasswordDTO.passwordMatch()) return null;
+        ApplicationUser user = findByEmail(changePasswordDTO.getEmail());
+        if(user == null) return null;
+
+        user.setPassword(new BCryptPasswordEncoder().encode(changePasswordDTO.getNewPassword()));
+        save(user);
+
+        return user;
+    }
 }

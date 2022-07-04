@@ -12,6 +12,6 @@ public class UserDTO {
     public String email;
     public String password;
     public String apiToken;
-    public ApplicationUserRole role;
+    public String role;
 
 }
